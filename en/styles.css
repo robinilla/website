@@ -1,0 +1,1265 @@
+/* css styles */
+/* =========================================================
+   ROBINILLA WEBSITE
+   ========================================================= */
+
+:root {
+  --site-green: #004E4C;
+  --site-green-soft: rgb(0 78 76 / 9%);
+  --text-main: #1d2827;
+  --text-muted: #5f6b6b;
+  --line-soft: #d8e0df;
+
+  --font-body:
+    "Avenir Next",
+    "Avenir",
+    "Avenir Book",
+    "Helvetica Neue",
+    Helvetica,
+    Arial,
+    sans-serif;
+
+  --font-heading:
+    "Avenir Next",
+    "Avenir Heavy",
+    "Avenir",
+    "Helvetica Neue",
+    Helvetica,
+    Arial,
+    sans-serif;
+}
+
+
+/* =========================================================
+   TIPOGRAFÍA Y ELEMENTOS GENERALES
+   ========================================================= */
+body {
+  font-family: var(--font-body);
+  font-weight: 400;
+}
+
+/*
+ * Tamaño del contenido de las páginas interiores:
+ * Research, PhD, Conferences, Teaching, People, etc.
+ *
+ * Se excluyen la portada y Publicaciones porque ya tienen
+ * sus propios estilos.
+ */
+body:not(.home):not(.publications-page):not(.conferences-page) main.content {
+  font-size: 1.5rem;
+  line-height: 1.58;
+  width: min(1300px, calc(100vw - 2rem)) !important;
+}
+
+body:not(.home):not(.publications-page) main.content p,
+body:not(.home):not(.publications-page) main.content li {
+  font-size: inherit;
+  line-height: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.title,
+.navbar-brand {
+  font-family: var(--font-heading);
+  font-weight: 800;
+}
+
+p,
+li,
+td,
+th,
+input,
+button {
+  font-family: var(--font-body);
+}
+
+main.content a {
+  text-underline-offset: 0.15em;
+}
+
+.nav-footer {
+  font-family: var(--font-body);
+  font-size: 1.0rem;
+}
+
+/* Tablas de las páginas interiores */
+main.content table,
+main.content table th,
+main.content table td,
+main.content table td p {
+  font-family: var(--font-body);
+  font-size: 1.25rem !important;
+  line-height: 1.5;
+}
+
+
+body.conferences-page main.content {
+  grid-column: screen-start / screen-end !important;
+
+  width: min(1500px, calc(100vw - 2rem)) !important;
+  max-width: none !important;
+
+  margin-right: auto !important;
+  margin-left: 1rem !important;
+
+  justify-self: start !important;
+}
+
+
+/* =========================================================
+   NAVBAR: PÁGINAS INTERIORES
+   ========================================================= */
+
+body:not(.home) #quarto-header,
+body:not(.home) #quarto-header .navbar,
+body:not(.home) #quarto-header .navbar-container,
+body:not(.home) #quarto-header nav {
+  background-color: var(--site-green) !important;
+  background-image: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+body:not(.home) #quarto-header .navbar-brand,
+body:not(.home) #quarto-header .navbar-title,
+body:not(.home) #quarto-header .nav-link,
+body:not(.home) #quarto-header .quarto-navigation-tool,
+body:not(.home) #quarto-header button,
+body:not(.home) #quarto-header .bi {
+  color: white !important;
+  font-size: 1.3rem;
+  line-height: 1.58;
+}
+
+
+/* =========================================================
+   PORTADA: NAVBAR TRANSPARENTE Y BANNER
+   index.qmd debe contener: body-classes: home
+   ========================================================= */
+
+body.home,
+body.home.nav-fixed {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+body.home #quarto-header {
+  position: absolute !important;
+  inset: 0 0 auto 0;
+  z-index: 1050 !important;
+
+  width: 100% !important;
+
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+body.home #quarto-header nav.navbar,
+body.home #quarto-header .navbar,
+body.home #quarto-header .navbar-container,
+body.home #quarto-header .navbar-container.container-fluid {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+body.home #quarto-header .navbar-brand,
+body.home #quarto-header .navbar-title,
+body.home #quarto-header .nav-link,
+body.home #quarto-header .quarto-navigation-tool,
+body.home #quarto-header button,
+body.home #quarto-header .bi,
+body.home #quarto-header #quarto-search,
+body.home #quarto-header #quarto-search svg {
+  color: white !important;
+  fill: currentColor !important;
+  stroke: currentColor !important;
+  text-shadow: none !important;
+  filter: none !important;
+}
+
+body.home #quarto-header .nav-link {
+  font-weight: 500;
+  letter-spacing: 0.025em;
+}
+
+body.home #quarto-header .nav-link:hover,
+body.home #quarto-header .nav-link:focus,
+body.home #quarto-header .nav-link.active,
+body.home #quarto-header .quarto-navigation-tool:hover {
+  color: white !important;
+  opacity: 0.72;
+}
+
+body.home #quarto-header .nav-link.active {
+  border-bottom-color: transparent !important;
+}
+
+body.home #quarto-content,
+body.home .quarto-container,
+body.home #title-block-header {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+body.home #title-block-header {
+  margin: 0;
+  padding: 0;
+}
+
+body.home .quarto-title-banner {
+  position: relative;
+  left: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100vw;
+  max-width: none;
+  min-height: 580px;
+
+  margin: 0 -50vw;
+  padding: 8rem 1.5rem 4rem;
+
+  background-color: rgb(0 0 0 / 18%);
+  background-position: center 50% !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  background-blend-mode: multiply;
+}
+
+body.home .quarto-title-banner .quarto-title {
+  width: min(1400px, 92vw);
+  margin: 0 auto;
+  text-align: center;
+}
+
+body.home .quarto-title-banner h1.title {
+  margin: 0;
+
+  color: white;
+  font-size: clamp(3rem, 4vw, 3rem);
+  font-weight: 800;
+  line-height: 1.05;
+  text-shadow: none !important;
+}
+
+body.home .quarto-title-banner .subtitle {
+  margin-top: 1rem;
+
+  color: white;
+  font-size: clamp(1.5rem, 2.2vw, 2rem);
+  font-weight: 300;
+  line-height: 1.4;
+  text-shadow: none !important;
+}
+
+body.home .quarto-title-banner .description {
+  max-width: 850px;
+  margin: 1rem auto 0;
+
+  color: white;
+  font-size: clamp(1rem, 1.4vw, 1.2rem);
+  font-weight: 300;
+  line-height: 1.6;
+  text-shadow: none !important;
+}
+
+body.home main.content {
+  padding-top: 2.5rem;
+  font-size: 1.5rem;
+}
+
+body.home .btn {
+  margin-top: 0.4rem;
+  margin-right: 0.4rem;
+
+  font-family: var(--font-body);
+  font-weight: 500;
+  border-radius: 0.35rem;
+}
+
+.home-news-single {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.9fr) minmax(0, 1.1fr);
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+
+  width: min(1100px, 100%);
+  margin: 1.5rem auto 3rem;
+}
+
+/* Elimina el margen que Quarto añade alrededor de la imagen */
+.home-news-image,
+.home-news-image p {
+  margin: 0;
+}
+
+.home-news-photo {
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  border-radius: 0.8rem;
+  box-shadow: 0 8px 24px rgb(0 0 0 / 12%);
+}
+
+.home-news-text {
+  min-width: 0;
+}
+
+.home-news-text p:first-child {
+  margin-top: 0;
+
+  color: var(--site-green);
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 800;
+}
+
+.home-news-text p:last-child {
+  margin-bottom: 0;
+}
+
+
+body.home .home-publication-button {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+
+  width: auto !important;
+  max-width: max-content !important;
+  padding: 0.28rem 0.68rem !important;
+
+  color: var(--site-green) !important;
+  background-color: var(--site-green-soft) !important;
+  border: 1px solid rgb(0 78 76 / 18%) !important;
+  border-radius: 0.28rem !important;
+
+  font-family: var(--font-body);
+  font-size: 1.2rem !important;
+  font-weight: 700 !important;
+  line-height: 1.25 !important;
+  text-decoration: none !important;
+  box-shadow: none !important;
+
+  transition:
+    color 0.15s ease,
+    background-color 0.15s ease,
+    border-color 0.15s ease,
+    transform 0.15s ease;
+}
+
+body.home .home-publication-button:hover,
+body.home .home-publication-button:focus {
+  color: white !important;
+  background-color: var(--site-green) !important;
+  border-color: var(--site-green) !important;
+  text-decoration: none !important;
+  transform: translateY(-1px);
+}
+
+body.home .home-publication-button:focus-visible {
+  outline: 3px solid rgb(0 78 76 / 25%) !important;
+  outline-offset: 2px;
+}
+
+
+@media (max-width: 760px) {
+  .home-news-single {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .home-news-image {
+    width: min(500px, 100%);
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .home-news-text {
+    text-align: left;
+  }
+}
+
+
+
+
+/* =========================================================
+   PRESENTACIÓN DE LA PORTADA
+   ========================================================= */
+
+.home-intro {
+  width: min(1100px, 92vw);
+  margin: 3.5rem auto;
+
+  align-items: center;
+  column-gap: 3rem;
+  row-gap: 2rem;
+}
+
+.profile-column {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-photo {
+  display: block;
+
+  width: 270px;
+  height: 270px;
+  max-width: 100%;
+
+  object-fit: cover;
+  object-position: center 30%;
+
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 5px white,
+    0 10px 28px rgb(0 0 0 / 16%);
+}
+
+.profile-description {
+  align-self: center;
+}
+
+.profile-description h2 {
+  margin-top: 0;
+}
+
+
+/* =========================================================
+   SELECTOR DE IDIOMA
+   _language-menu.html añade la clase .language-nav-item
+   ========================================================= */
+
+.language-nav-item {
+  display: flex !important;
+  align-items: center !important;
+
+  margin-left: auto !important;
+  list-style: none;
+}
+
+#languages-button,
+.babelquarto-languages-button,
+#languages-button.btn,
+#languages-button.btn-primary,
+#languages-button.dropdown-toggle {
+  padding: 0.45rem 0.55rem !important;
+
+  color: white !important;
+  background: transparent !important;
+  background-color: transparent !important;
+
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+
+  font-family: var(--font-body);
+  font-size: inherit;
+  font-weight: 400;
+  text-shadow: none !important;
+}
+
+#languages-button:hover,
+#languages-button:focus,
+#languages-button:active,
+#languages-button.show {
+  color: white !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  opacity: 0.72;
+}
+
+#languages-button::after {
+  margin-left: 0.3rem;
+  vertical-align: middle;
+}
+
+#languages-links-parent .dropdown-menu {
+  min-width: 9rem;
+}
+
+#languages-links-parent .dropdown-item {
+  color: #212529 !important;
+  background-color: transparent !important;
+}
+
+#languages-links-parent .dropdown-item:hover,
+#languages-links-parent .dropdown-item:focus {
+  color: var(--site-green) !important;
+  background-color: var(--site-green-soft) !important;
+}
+
+
+
+/* =========================================================
+   PUBLICACIONES — CITA COMPLETA EN UNA SOLA LÍNEA LÓGICA
+   Número + título + autores + revista/año; botones debajo
+   ========================================================= */
+
+body.publications-page main.content {
+  display: block !important;
+  width: min(1300px, calc(100vw - 2rem)) !important;
+  max-width: none !important;
+  margin-right: auto !important;
+  margin-left: auto !important;
+  padding-top: 3rem;
+  padding-bottom: 5rem;
+}
+
+body.publications-page #title-block-header,
+body.publications-page #quarto-document-content {
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+  margin-right: auto !important;
+  margin-left: auto !important;
+}
+
+body.publications-page .quarto-title {
+  width: min(1300px, calc(100vw - 2rem)) !important;
+  max-width: none !important;
+  margin-right: auto !important;
+  margin-left: auto !important;
+}
+
+body.publications-page .quarto-title h1.title {
+  margin-bottom: 0.35rem;
+  color: var(--site-green);
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 4vw, 3.6rem);
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+body.publications-page .quarto-title .description {
+  width: 100% !important;  
+  max-width: none !important;
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+
+body.publications-page .publications-list {
+  display: block !important;
+  width: min(1300px, 100%) !important;
+  max-width: none !important;
+  margin: 1rem auto 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box;
+}
+
+body.publications-page .pub-year {
+  display: block !important;
+  width: 100% !important;
+  margin: 2.7rem 0 1.15rem !important;
+  padding: 0 0 0.45rem !important;
+  color: #526160;
+  border-bottom: 1px solid var(--line-soft);
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: 800;
+  line-height: 1.3;
+}
+
+body.publications-page .publications-list > .pub-year:first-child {
+  margin-top: 0.9rem !important;
+}
+
+body.publications-page .pub {
+  display: block !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  margin: 0 0 1.55rem !important;
+  padding: 0 !important;
+  box-sizing: border-box;
+}
+
+/*
+ * Todos los elementos bibliográficos son inline dentro del mismo párrafo.
+ * Las citas largas pueden ajustarse al ancho de pantalla, pero Quarto ya no
+ * fuerza saltos entre número, título, autores y revista/año.
+ */
+body.publications-page .pub-citation {
+  display: block !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  color: var(--text-muted);
+  font-family: var(--font-body);
+  font-size: 1.03rem;
+  font-weight: 400;
+  line-height: 1.5;
+  white-space: normal !important;
+  word-break: normal !important;
+  overflow-wrap: break-word !important;
+}
+
+body.publications-page .pub-citation .pub-number,
+body.publications-page .pub-citation .pub-title,
+body.publications-page .pub-citation .pub-authors,
+body.publications-page .pub-citation .pub-venue {
+  display: inline !important;
+  width: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+body.publications-page .pub-citation .pub-number {
+  margin-right: 0.42rem !important;
+  color: #71807f; 
+  font-size: 1.4em;
+  font-weight: 800 !important;
+  line-height: 1.3;
+  white-space: nowrap;
+}
+
+body.publications-page .pub-citation .pub-title {
+  color: var(--text-main);
+  font-family: var(--font-heading);
+  font-weight: 800 !important;
+  font-size: 1.4em;
+}
+
+body.publications-page .pub-citation .pub-authors {
+  color: #526160;
+  font-size: 1.25em;
+}
+
+body.publications-page .pub-citation .pub-authors strong {
+  color: var(--text-main);
+  font-weight: 800;
+  font-size: 1.25em;
+}
+
+body.publications-page .pub-citation .pub-venue {
+  color: #667372;
+  font-style: italic;
+  font-size: 1.25em;
+}
+
+body.publications-page .pub-links {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  gap: 0.42rem !important;
+  width: auto !important;
+  margin: 0.62rem 0 0 !important;
+  padding: 0 !important;
+  font-size: 1.0rem !important;
+}
+
+body.publications-page .pub-links > a {
+  display: inline-flex !important;
+  flex: 0 0 auto !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: auto !important;
+  max-width: max-content !important;
+  margin: 0 !important;
+  padding: 0.28rem 0.68rem !important;
+  color: var(--site-green) !important;
+  background-color: var(--site-green-soft) !important;
+  border: 1px solid rgb(0 78 76 / 18%) !important;
+  border-radius: 0.28rem !important;
+  font-family: var(--font-body);
+  font-size: 1.2rem !important;
+  font-weight: 700 !important;
+  line-height: 1.25 !important;
+  text-decoration: none !important;
+  box-shadow: none !important;
+  transition:
+    color 0.15s ease,
+    background-color 0.15s ease,
+    border-color 0.15s ease,
+    transform 0.15s ease;
+}
+
+body.publications-page .pub-links > a:hover,
+body.publications-page .pub-links > a:focus {
+  color: white !important;
+  background-color: var(--site-green) !important;
+  border-color: var(--site-green) !important;
+  text-decoration: none !important;
+  transform: translateY(-1px);
+}
+
+body.publications-page .pub-links > a:focus-visible {
+  outline: 3px solid rgb(0 78 76 / 25%) !important;
+  outline-offset: 2px;
+}
+
+body.publications-page h2 {
+  width: min(1300px, 100%);
+  margin: 3.4rem auto 0.2rem;
+  color: var(--site-green);
+  font-size: 1.65rem;
+}
+
+@media (max-width: 600px) {
+  body.publications-page main.content {
+    width: calc(100% - 1.5rem) !important;
+    padding-top: 2rem;
+  }
+
+  body.publications-page .pub-citation {
+    font-size: 0.96rem;
+    line-height: 1.48;
+  }
+
+  body.publications-page .pub-year {
+    font-size: 1.6rem;
+  }
+
+  body.publications-page .pub-links {
+    gap: 0.35rem !important;
+  }
+
+  body.publications-page .pub-links > a {
+    padding: 0.26rem 0.62rem !important;
+    font-size: 0.79rem !important;
+  }
+}
+
+/* =========================================================
+   TABLA DE CONGRESOS
+   ========================================================= */
+
+/* Amplía el espacio disponible de la página */
+body.conferences-page main.content {
+  width: min(2000px, calc(100vw - 2rem)) !important;
+  max-width: none !important;
+
+  margin-right: auto !important;
+  margin-left: auto !important;
+}
+
+/* La tabla ocupa todo el ancho disponible */
+body.conferences-page main.content table {
+  width: 100% !important;
+  max-width: none !important;
+  table-layout: fixed;
+}
+
+/* Year */
+body.conferences-page main.content table th:nth-child(1),
+body.conferences-page main.content table td:nth-child(1) {
+  width: 3%;
+}
+
+/* Communication: columna más ancha */
+body.conferences-page main.content table th:nth-child(2),
+body.conferences-page main.content table td:nth-child(2) {
+  width: 67%;
+}
+
+/* City */
+body.conferences-page main.content table th:nth-child(3),
+body.conferences-page main.content table td:nth-child(3) {
+  width: 10%;
+}
+
+/* Conference */
+body.conferences-page main.content table th:nth-child(4),
+body.conferences-page main.content table td:nth-child(4) {
+  width: 20%;
+}
+
+/* Alineación del contenido */
+body.conferences-page main.content table th,
+body.conferences-page main.content table td {
+  vertical-align: top;
+  word-break: normal;
+  overflow-wrap: normal;
+}
+
+/* En pantallas pequeñas, permite desplazamiento horizontal */
+@media (max-width: 700px) {
+  body.conferences-page main.content .table-responsive {
+    overflow-x: auto;
+  }
+
+  body.conferences-page main.content table {
+    min-width: 900px;
+  }
+}
+
+
+
+
+/* =========================================================
+   PÁGINA PEOPLE
+   people.qmd debe contener: body-classes: people-page
+   ========================================================= */
+
+body.people-page main.content {
+  width: min(1200px, calc(100vw - 3rem)) !important;
+  max-width: none !important;
+
+  margin-right: auto !important;
+  margin-left: auto !important;
+  padding-top: 2.5rem;
+  padding-bottom: 5rem;
+
+  font-size: 1.15rem;
+  line-height: 1.65;
+}
+
+/* Cabecera del perfil: imagen y resumen en dos columnas */
+body.people-page .people-profile {
+  display: grid;
+  grid-template-columns: minmax(240px, 320px) minmax(0, 1fr);
+  gap: clamp(2.5rem, 5vw, 5rem);
+
+  /* Centra verticalmente la fotografía respecto al texto */
+  align-items: center;
+
+  width: 100%;
+  margin: 0 auto 3.5rem;
+}
+
+/* Evita márgenes añadidos por el párrafo que contiene la imagen */
+body.people-page .people-photo,
+body.people-page .people-photo p {
+  margin: 0;
+}
+
+/* Fotografía vertical con esquinas redondeadas */
+body.people-page .people-portrait {
+  display: block;
+
+  width: 100%;
+  max-width: 320px;
+  aspect-ratio: 4 / 5;
+
+  object-fit: cover;
+  object-position: center 50%;
+
+  border-radius: 1.4rem;
+  box-shadow: 0 10px 28px rgb(0 0 0 / 15%);
+}
+
+/* Columna de texto */
+body.people-page .people-summary {
+  min-width: 0;
+}
+
+body.people-page .people-summary h2 {
+  margin-top: 0;
+  margin-bottom: 1.1rem;
+
+  color: var(--site-green);
+  font-size: clamp(2rem, 3vw, 2.7rem);
+  line-height: 1.1;
+}
+
+body.people-page .people-summary ul {
+  margin-bottom: 1.4rem;
+  padding-left: 1.3rem;
+}
+
+body.people-page .people-summary li {
+  margin-bottom: 0.45rem;
+  font-size: 0.90rem;
+  line-height: 1.55;
+}
+
+/* Enlaces académicos y de contacto */
+body.people-page .people-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem 0;
+
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+
+  border-top: 1px solid var(--line-soft);
+  color: var(--text-muted);
+  font-size: 0.84em;
+}
+
+body.people-page .people-links a {
+  color: var(--site-green);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+body.people-page .people-links a:hover,
+body.people-page .people-links a:focus {
+  text-decoration: underline;
+}
+
+/* En móvil, fotografía y texto vuelven a apilarse */
+@media (max-width: 760px) {
+  body.people-page main.content {
+    width: calc(100% - 2rem) !important;
+    padding-top: 1.8rem;
+  }
+
+  body.people-page .people-profile {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  body.people-page .people-photo {
+    display: flex;
+    justify-content: center;
+  }
+
+  body.people-page .people-portrait {
+    width: min(300px, 85vw);
+  }
+
+  body.people-page .people-summary h2 {
+    text-align: center;
+  }
+
+  body.people-page .people-links {
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+
+/* =========================================================
+   PÁGINA DE LA TESIS
+   thesis.qmd debe contener: body-classes: thesis-page
+   ========================================================= */
+
+body.thesis-page main.content {
+  grid-column: screen-start / screen-end !important;
+
+  display: block !important;
+  width: min(1500px, calc(100vw - 3rem)) !important;
+  max-width: none !important;
+
+  margin-right: auto !important;
+  margin-left: auto !important;
+  padding-top: 2.5rem;
+  padding-bottom: 4rem;
+}
+
+body.thesis-page #quarto-document-content {
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+  margin-right: auto !important;
+  margin-left: auto !important;
+}
+
+/* Introducción */
+body.thesis-page .thesis-intro {
+  width: min(1200px, 100%);
+  margin: 0 auto;
+}
+
+body.thesis-page .thesis-intro h2 {
+  margin-top: 0;
+  margin-bottom: 0.6rem;
+
+  color: var(--text-main);
+  font-size: clamp(2rem, 3vw, 2.8rem);
+  line-height: 1.15;
+}
+
+body.thesis-page .thesis-intro p {
+  margin-bottom: 0.5rem;
+}
+
+/* Botones */
+body.thesis-page .thesis-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+
+  width: min(1200px, 100%);
+  margin: 1.5rem auto 2rem;
+}
+
+body.thesis-page .thesis-actions .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0.55rem 1rem;
+
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+/* Visor grande */
+body.thesis-page .thesis-viewer {
+  display: block;
+
+  width: min(1400px, calc(100vw - 3rem)) !important;
+  height: 85vh !important;
+  min-height: 800px;
+  
+  margin: 0 auto;
+  overflow: hidden;
+
+  background: #f3f5f5;
+  border: 1px solid var(--line-soft);
+  border-radius: 0.7rem;
+  box-shadow: 0 10px 30px rgb(0 0 0 / 10%);
+}
+
+body.thesis-page .thesis-viewer iframe {
+  display: block !important;
+
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 800px;
+
+  border: 0 !important;
+}
+
+/* Adaptación para móvil */
+@media (max-width: 700px) {
+  body.thesis-page main.content {
+    width: calc(100vw - 1rem) !important;
+    padding-top: 1.5rem;
+  }
+
+  body.thesis-page .thesis-viewer {
+    height: 78vh !important;
+    min-height: 550px;
+    border-radius: 0.35rem;
+  }
+
+  body.thesis-page .thesis-viewer iframe {
+    min-height: 550px;
+  }
+}
+
+
+
+/* =========================================================
+   PÁGINA DE LA APLICACIÓN SHINY
+   ========================================================= */
+
+body.shiny-page main.content {
+  grid-column: screen-start / screen-end !important;
+
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+
+  margin: 0 !important;
+  padding: 1rem 1rem 2rem !important;
+}
+
+body.shiny-page #quarto-document-content {
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+}
+
+/* Botón */
+body.shiny-page .shiny-app-actions {
+  display: flex;
+  justify-content: flex-end;
+
+  width: min(1800px, 100%);
+  margin: 0 auto 0.75rem;
+}
+
+body.shiny-page .shiny-app-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0.4rem 0.8rem;
+
+  color: var(--site-green);
+  background-color: var(--site-green-soft);
+  border: 1px solid rgb(0 78 76 / 18%);
+  border-radius: 0.28rem;
+
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+body.shiny-page .shiny-app-button:hover,
+body.shiny-page .shiny-app-button:focus {
+  color: white;
+  background-color: var(--site-green);
+  border-color: var(--site-green);
+  text-decoration: none;
+}
+
+/* Aplicación: casi toda la pantalla */
+body.shiny-page .shiny-app-container {
+  width: min(1800px, calc(100vw - 2rem)) !important;
+
+  /* Altura de la ventana menos navbar y botón */
+  height: calc(100dvh - 145px) !important;
+  min-height: 750px;
+
+  margin: 0 auto;
+  overflow: hidden;
+
+  background: white;
+  border: 1px solid var(--line-soft);
+  border-radius: 0.6rem;
+  box-shadow: 0 8px 24px rgb(0 0 0 / 10%);
+}
+
+body.shiny-page .shiny-app-container iframe {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  border: 0 !important;
+}
+
+/* Móvil */
+@media (max-width: 700px) {
+  body.shiny-page main.content {
+    padding: 0.5rem !important;
+  }
+
+  body.shiny-page .shiny-app-actions {
+    justify-content: flex-start;
+  }
+
+  body.shiny-page .shiny-app-container {
+    width: calc(100vw - 1rem) !important;
+    height: calc(100dvh - 145px) !important;
+    min-height: 600px;
+    border-radius: 0.35rem;
+  }
+}
+
+
+
+/* =========================================================
+   PÁGINA TEACHING - RESOURCES
+   ========================================================= */
+
+/*
+ * Anula el width: 1300px de la regla general de páginas
+ * interiores y permite que funcione la cuadrícula de Quarto.
+ */
+body.teaching-page main#quarto-document-content.content {
+  width: auto !important;
+  max-width: none !important;
+  justify-self: stretch !important;
+}
+
+/* Mantiene el índice visible al desplazarse por la página */
+body.teaching-page #TOC {
+  position: sticky;
+  top: 5.5rem;
+}
+
+body.teaching-page #TOC .nav-link {
+  font-size: 1.2rem;
+  line-height: 1.4;
+}
+
+body.teaching-page #TOC li {
+  margin-bottom: 0.25rem;
+}
+
+
+
+
+/* SIDEBAR */
+/* Texto de los enlaces del sidebar */
+#quarto-sidebar .sidebar-item-text {
+  font-size: 1.2rem;
+  line-height: 1.35;
+  color: #004E4C;
+}
+
+/* Títulos de las secciones: Fundamentos, Visualización, etc. */
+#quarto-sidebar .sidebar-section-title {
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+body.muibaf-page #quarto-sidebar a.sidebar-link.active,
+body.muibaf-page #quarto-sidebar a.sidebar-link.active .sidebar-item-text,
+body.muibaf-page #quarto-sidebar a.sidebar-link.active .menu-text {
+  color: var(--site-green) !important;
+  font-weight: 800 !important;
+}
+
+
+body.muibaf-page .page-navigation .nav-page-text {
+  font-size: 1.15rem !important;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+body.muibaf-page .page-navigation .pagination-link {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  color: var(--site-green) !important;
+  text-decoration: none;
+}
+
+body.muibaf-page .page-navigation .pagination-link:hover {
+  text-decoration: underline;
+}
+
+body.muibaf-page .page-navigation .bi {
+  font-size: 1.5rem !important;
+}
+
+
+
+/* CUADRADO DE NOTES, define */
+.nota-grande .callout-title-container {
+  font-size: 1.5rem;
+}
+
+.callout.callout-style-default .callout-body {
+  font-size: 1.5rem;
+}
+
+.nota-grande .callout-icon-container {
+  width: 2rem;
+  min-width: 2rem;
+}
+
+.nota-grande .callout-icon,
+.nota-grande .callout-icon::before {
+  display: block;
+  width: 1.8rem !important;
+  height: 1.8rem !important;
+  background-size: 1.8rem 1.8rem !important;
+}
+
+/* Centrar el icono respecto al título */
+.nota-grande .callout-title {
+  align-items: center;
+}
+
+body.muibaf-page #quarto-sidebar a.sidebar-link.active-section,
+body.muibaf-page #quarto-sidebar a.sidebar-link.active-section .sidebar-item-text,
+body.muibaf-page #quarto-sidebar a.sidebar-link.active-section .menu-text {
+  color: var(--site-green) !important;
+  font-weight: 800 !important;
+}

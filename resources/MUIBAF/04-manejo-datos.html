@@ -1,0 +1,1473 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<link rel="alternate" hreflang="es" href="/resources/MUIBAF/04-manejo-datos.html" />
+<link rel="alternate" hreflang="en" href="/en/resources/MUIBAF/04-manejo-datos.en.html" />
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>manejo-datos – Sonia Illanas Website</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-4c25bb5854eced0c373052ef340e9bbd.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No se han encontrado resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed muibaf-page fullcontent quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Sonia Illanas Website</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Buscar"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Navegación de palanca" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../publications.html"> 
+<span class="menu-text">Publicaciones</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../phd.html"> 
+<span class="menu-text">PhD</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../conferences.html"> 
+<span class="menu-text">Congresos</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../teaching.html"> 
+<span class="menu-text">Recursos</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../people.html"> 
+<span class="menu-text">Gente</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <h1 class="quarto-secondary-nav-title no-breadcrumbs"></h1>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Buscar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../resources/MUIBAF/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Inicio de las prácticas</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Fundamentos de R</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../resources/MUIBAF/00-beginning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">0. Antes de empezar</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../resources/MUIBAF/01-intro-R.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1. Primer contacto con R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../resources/MUIBAF/01-intro-R.html#r-panels" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.1. Paneles de R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../resources/MUIBAF/01-intro-R.html#r-consola" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.2. R ¿Script o consola?</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../resources/MUIBAF/01-intro-R.html#r-calculadora" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.3. R como calculadora</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../resources/MUIBAF/01-intro-R.html#r-objects" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.4. Asignación de objetos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../resources/MUIBAF/01-intro-R.html#r-naming" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.5. Nombres de objetos y scripts</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../resources/MUIBAF/01-intro-R.html#r-errors" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.6. Errores y warnings</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../resources/MUIBAF/02-estructuras-datos-R.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2. Tipo y estructura de los datos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../resources/MUIBAF/02-estructuras-datos-R.html#vectors" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.1. Vectores</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../resources/MUIBAF/02-estructuras-datos-R.html#list" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.2. Listas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../resources/MUIBAF/02-estructuras-datos-R.html#matrix" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.3. Matrices</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../resources/MUIBAF/02-estructuras-datos-R.html#df" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.4. Data frames y tibbles</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../resources/MUIBAF/02-estructuras-datos-R.html#factores" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.5. Factores (variables categóricas)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../resources/MUIBAF/02-estructuras-datos-R.html#NULL" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.6. Diferencia entre <code>NULL</code> y <code>NA</code></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../resources/MUIBAF/03-funciones-paquetes-R.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3. Funciones y paquetes en R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../resources/MUIBAF/03-funciones-paquetes-R.html#uso-funciones" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.1. Uso de funciones</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../resources/MUIBAF/03-funciones-paquetes-R.html#argumentos" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.2. Argumentos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../resources/MUIBAF/03-funciones-paquetes-R.html#install-packages" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.3. Instalar y cargar paquetes</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../resources/MUIBAF/03-funciones-paquetes-R.html#package-citation" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.4. ¿Cómo citar los paquetes de R en un trabajo?</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../resources/MUIBAF/03-funciones-paquetes-R.html#own-functions" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.5. Funciones propias</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../resources/MUIBAF/03-funciones-paquetes-R.html#control-structures" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.6. Estructuras de control</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../resources/MUIBAF/04-manejo-datos.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">4. Tibbles y tidyverse</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../resources/MUIBAF/04-manejo-datos.html#tibbles" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.1. De data frames a tibbles</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../resources/MUIBAF/04-manejo-datos.html#tidyv" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.2. ¿Qué es el tidyverse?</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../resources/MUIBAF/04-manejo-datos.html#tidydata" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.3. Datos ordenados o <em>tidy data</em></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../resources/MUIBAF/04-manejo-datos.html#pipe" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.4. El operador pipe</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../resources/MUIBAF/04-manejo-datos.html#paquetes-tidyverse" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.5. Principales paquetes del tidyverse</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Análisis estadísticos básicos</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../resources/MUIBAF/05-stats-medias.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5. Estadística básica</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../resources/MUIBAF/05-stats-medias.html#data-preparation" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.1. Preparación y exploración de los datos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../resources/MUIBAF/05-stats-medias.html#group-mean-comparison" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.2. Comparaciones entre dos grupos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../resources/MUIBAF/05-stats-medias.html#group-mean-comparison-more-than-2-levels" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.3. Comparaciones entre más de dos grupos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../resources/MUIBAF/05-stats-medias.html#interactions" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.4. Comparación de efectos entre variables</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../resources/MUIBAF/05-stats-medias.html#repeated-samples" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.5. Muestras dependientes o medidas repetidas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../resources/MUIBAF/05-stats-medias.html#relations" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.6. Relaciones entre variables</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+<section id="tibbles-y-tidyverse" class="level1">
+<h1>4. Tibbles y tidyverse</h1>
+<section id="tibble" class="level2">
+<h2 class="anchored" data-anchor-id="tibble">4.1. De data frames a tibbles</h2>
+<p>Un tibble es una versión moderna del data.frame, es decir, es una tabla. Mantiene la organización en filas y columnas, pero ofrece una impresión más clara y un comportamiento más consistente al seleccionar y modificar columnas.</p>
+<p>Un tibble sigue siendo un tipo de <code>data.frame</code>, por lo que puede utilizarse con la mayoría de las funciones que trabajan con tablas.</p>
+<p>Algunas de las ventajas de tibble frente a data frames son:<br>
+- muestran solo las primeras filas y las columnas que caben en pantalla;<br>
+- indican el tipo de dato almacenado en cada columna;<br>
+- da las dimensiones de la tabla;<br>
+- se integran de forma coherente con los paquetes del tidyverse;<br>
+- evitan algunos comportamientos automáticos de los data.frame;<br>
+- suele generar mensajes de error más informativos.</p>
+<p>Se puede crear mediante la función <code>tibble()</code> o convertirse desde otro objeto mediante <code>as_tibble()</code>.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>datos_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">y =</span> <span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span>))</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>datos_df</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="do">##   x y</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="do">## 1 1 a</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="do">## 2 2 b</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="do">## 3 3 c</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>datos_tb <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">y =</span> <span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span>))</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>datos_tb</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="do">## # A tibble: 3 × 2</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="do">##       x y    </span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="do">##   &lt;int&gt; &lt;chr&gt;</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="do">## 1     1 a    </span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="do">## 2     2 b    </span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="do">## 3     3 c</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>datos_tb2 <span class="ot">&lt;-</span> <span class="fu">as_tibble</span>(datos_df)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>datos_tb2</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="do">## # A tibble: 3 × 2</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="do">##       x y    </span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="do">##   &lt;int&gt; &lt;chr&gt;</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="do">## 1     1 a    </span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="do">## 2     2 b    </span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="do">## 3     3 c</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="tidyv" class="level2">
+<h2 class="anchored" data-anchor-id="tidyv">4.2. ¿Qué es el tidyverse?</h2>
+<p>El <strong><a href="https://tidyverse.org/">tidyverse</a></strong> es un ecosistema de paquetes para ciencia de datos que comparten una filosofía de diseño, estructuras de datos y sintaxis coherentes, que permiten preparar, procesar y graficar bases de datos.</p>
+<p>El paquete tidyverse funciona como un metapaquete está compuesto en la actualidad por 9 paquetes:</p>
+<p><a href="https://tidyverse.org/packages/"><img src="tidyverse.png" class="img-fluid"></a></p>
+<p>Este entorno de paquetes sustituye cómo se trabaja (crean variables nuevas, se hacen filtros, etc.) respecto a R base. Es importante pensar que aunque son formas distintas de escribir no son excluyentes, sino complementarias, y que a veces nos resultará mejor utilizar una u otra.</p>
+</section>
+<section id="tidydata" class="level2">
+<h2 class="anchored" data-anchor-id="tidydata">4.3. Datos ordenados o <em>tidy data</em></h2>
+<p>Existen muchas maneras de organizar los datos en una tabla. Los datos ordenados o <em>tidy data</em> siguen una estructura regular y lógica para ordenar datos en una tabla. Un conjunto de datos es tidy cuando:<br>
+- cada variable ocupa una columna;<br>
+- cada observación ocupa una fila;<br>
+- cada valor ocupa una celda.</p>
+<p><a href="https://openscapes.org/blog/2020-10-12-tidy-data/"><img src="tidydata_6.jpg" class="img-fluid"></a></p>
+<p><slang style="color: #004E4C"><b>Ejemplo:</b> Vamos al campo y medimos las condiciones fisiológicas de peso de los pollos de nuestra zona de estudio a lo largo de distintos meses en una temporada de muestreo. ¿Cómo podemos organizar los datos?.</slang></p>
+<ul>
+<li><p>El <strong>formato ancho</strong> (<em>wide</em>), los valores de una misma variable pueden estar distribuidos entre varias columnas. Esto es frecuente cuando se realizan varias mediciones sobre la misma unidad de observación.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Individuo</th>
+<th>peso_abril</th>
+<th>peso_mayo</th>
+<th>peso_junio</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>s2026_p1</td>
+<td>15</td>
+<td>23</td>
+<td>21</td>
+</tr>
+<tr class="even">
+<td>s2026_p2</td>
+<td>13</td>
+<td>21</td>
+<td>25</td>
+</tr>
+<tr class="odd">
+<td>s2026_p3</td>
+<td>18</td>
+<td>20</td>
+<td>23</td>
+</tr>
+<tr class="even">
+<td>s2026_p4</td>
+<td>16</td>
+<td>25</td>
+<td>26</td>
+</tr>
+</tbody>
+</table></li>
+<li><p>El <strong>formato largo</strong> (<em>long</em>) suele facilitar que los datos cumplan los principios de <em>tidy data</em>, pero una tabla en formato long no es necesariamente tidy si no respeta las tres reglas anteriormente mencionadas.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Individuo</th>
+<th>Mes</th>
+<th>Peso</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>s2026_p1</td>
+<td>Abril</td>
+<td>15</td>
+</tr>
+<tr class="even">
+<td>s2026_p1</td>
+<td>Mayo</td>
+<td>23</td>
+</tr>
+<tr class="odd">
+<td>s2026_p1</td>
+<td>Junio</td>
+<td>21</td>
+</tr>
+<tr class="even">
+<td>s2026_p2</td>
+<td>Abril</td>
+<td>13</td>
+</tr>
+<tr class="odd">
+<td>s2026_p2</td>
+<td>Mayo</td>
+<td>21</td>
+</tr>
+<tr class="even">
+<td>s2026_p2</td>
+<td>Junio</td>
+<td>25</td>
+</tr>
+<tr class="odd">
+<td>s2026_p3</td>
+<td>Abril</td>
+<td>18</td>
+</tr>
+<tr class="even">
+<td>s2026_p3</td>
+<td>Mayo</td>
+<td>20</td>
+</tr>
+<tr class="odd">
+<td>s2026_p3</td>
+<td>Junio</td>
+<td>23</td>
+</tr>
+<tr class="even">
+<td>s2026_p4</td>
+<td>Abril</td>
+<td>16</td>
+</tr>
+<tr class="odd">
+<td>s2026_p4</td>
+<td>Mayo</td>
+<td>25</td>
+</tr>
+<tr class="even">
+<td>s2026_p4</td>
+<td>Junio</td>
+<td>26</td>
+</tr>
+</tbody>
+</table></li>
+</ul>
+<div class="nota-grande callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Ventajas del formato <em>tidy</em>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p>El formato <em>tidy</em> puede ser más largo de escribir manualmente y ocupar más filas, pero proporciona una estructura regular inequívoca: cada variable ocupa una columna, cada observación una fila y cada valor una celda. Esta estructura facilita la manipulación, la representación gráfica y el análisis de datos.</p>
+<blockquote class="blockquote">
+<p>“Tidy datasets are all alike but every messy dataset is messy in its own way.” – Hadley Wickham</p>
+</blockquote>
+</div>
+</div>
+</div>
+<p>¿Qué pasaría si queremos añadir otra variable, por ejemplo longitud del ala cada mes? En el formato largo añadiríamos una sola columna, <code>longitud_ala</code>, mientras que en el formato ancho necesitaríamos tres columnas, una por mes (<code>lon_abr</code>, <code>lon_may</code>, <code>lon_jun</code>).</p>
+</section>
+<section id="pipe" class="level2">
+<h2 class="anchored" data-anchor-id="pipe">4.4. El operador pipe</h2>
+<p>Una pipe (tubería) es un separador especial que permite encadenar varias operaciones: toma el objeto a su izquierda como primer argumento de la función a su derecha. Esto permite escribir una secuencia de operaciones en el mismo orden en que se realizan y permite escribir el código de manera más limpia y natural.</p>
+<p>El operador <code>|&gt;</code> está disponible a partir de la versión R 4.1 y no requiere cargar ningún paquete.</p>
+<p>El operador <code>%&gt;%</code> pertenece al paquete <code>magrittr</code> y tiene la misma funcionalidad. Este operador se carga al cargar su paquete o <code>library(tidyverse)</code></p>
+<p>El operador <code>|&gt;</code> es reciente. Lo más normal es que sigas encontrando el operador de magrittr <code>%&gt;%</code> en la mayoría de tutoriales, libros y scripts.</p>
+<blockquote class="blockquote">
+<p>Un truco para escribir rápidamente el operador es pulsar <code>CTRL + SHIFT + M</code>. En la actualidad este atajo devuelve <code>|&gt;</code>, antes este atajo escribía <code>%&gt;%</code>. Si prefieres que continue escribiendo la pipe de magrittr debes ir a <code>Tools/Gobal options/Code</code> y desmarcar la casilla <code>*use native pipe operator, |&gt;*</code>.</p>
+</blockquote>
+<p>Las pipes parecen raras al principio, pero permiten que nuestro código sea mucho más legible y entendible por un humano:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">6</span>, <span class="dv">1</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Sin pipe</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">exp</span>(<span class="fu">diff</span>(<span class="fu">log</span>(x))), <span class="dv">1</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 2.0 0.2</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="do">## Con pipe</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>x <span class="sc">|&gt;</span> <span class="fu">log</span>() <span class="sc">|&gt;</span> <span class="fu">diff</span>() <span class="sc">|&gt;</span> <span class="fu">exp</span>() <span class="sc">|&gt;</span> <span class="fu">round</span>(<span class="dv">1</span>)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 2.0 0.2</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<blockquote class="blockquote">
+<p>Coge el vector x, calcula su logaritmo, luego la diferencia de cada elemento con el anterior, halla su exponencial y redondea a una cifra decimal.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>x %&gt;% log() %&gt;% diff() %&gt;% exp() %&gt;% round(1) # mismo resultado</p>
+</blockquote>
+</section>
+<section id="paquetes-tidyverse" class="level2">
+<h2 class="anchored" data-anchor-id="paquetes-tidyverse">4.5. Principales paquetes del tidyverse</h2>
+<ul>
+<li><strong><code>readr</code></strong> proporciona funciones para importar tablas en diferentes formatos de texto. Una de sus funciones más utilizadas es <code>read_csv()</code>, que permite importar archivos CSV (Comma Separated Values).</li>
+</ul>
+<blockquote class="blockquote">
+<p>Otro paquete similar, también desarrollado por Hadley Wickham pero no incluido en el tidyverse, es <code>readxl()</code>. Este paquete provee funciones para leer archivos en formato Excel (.xls y .xlsx)</p>
+</blockquote>
+<ul>
+<li><strong><code>tidyr</code></strong> proporciona funciones para reorganizar datos y facilitar que cumplan los principios de <em>tidy data</em>. Dos de sus funciones principales son:
+<ul>
+<li><code>pivot_wider()</code>: agrupar datos de varias columnas en una sola. Para pasar de wide a long.<br>
+</li>
+<li><code>pivot_long()</code>: “extender” los datos de una columna en varias. Para pasar de long a wide.</li>
+</ul></li>
+</ul>
+<p>En ambos casos la nomenclatura es muy parecida:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>pesos <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">individuo =</span> <span class="fu">c</span>(<span class="st">"s2026_p1"</span>, <span class="st">"s2026_p2"</span>, <span class="st">"s2026_p3"</span>, <span class="st">"s2026_p4"</span>),</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>                <span class="at">peso_abril =</span> <span class="fu">c</span>(<span class="dv">15</span>, <span class="dv">13</span>, <span class="dv">18</span>, <span class="dv">16</span>),</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">peso_mayo =</span> <span class="fu">c</span>(<span class="dv">23</span>, <span class="dv">21</span>, <span class="dv">20</span>, <span class="dv">25</span>),</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">peso_junio =</span> <span class="fu">c</span>(<span class="dv">21</span>, <span class="dv">25</span>, <span class="dv">23</span>, <span class="dv">26</span>))</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>pesos</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="do">## # A tibble: 4 × 4</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="do">##   individuo peso_abril peso_mayo peso_junio</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="do">##   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="do">## 1 s2026_p1          15        23         21</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="do">## 2 s2026_p2          13        21         25</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="do">## 3 s2026_p3          18        20         23</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="do">## 4 s2026_p4          16        25         26</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>pesos_long <span class="ot">&lt;-</span> pesos <span class="sc">%&gt;%</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">starts_with</span>(<span class="st">"peso_"</span>),</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">"mes"</span>,</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">"peso"</span>)</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>pesos_long</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="do">## # A tibble: 12 × 3</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="do">##    individuo mes         peso</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="do">##    &lt;chr&gt;     &lt;chr&gt;      &lt;dbl&gt;</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="do">##  1 s2026_p1  peso_abril    15</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="do">##  2 s2026_p1  peso_mayo     23</span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a><span class="do">##  3 s2026_p1  peso_junio    21</span></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="do">##  4 s2026_p2  peso_abril    13</span></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a><span class="do">##  5 s2026_p2  peso_mayo     21</span></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a><span class="do">##  6 s2026_p2  peso_junio    25</span></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a><span class="do">##  7 s2026_p3  peso_abril    18</span></span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a><span class="do">##  8 s2026_p3  peso_mayo     20</span></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a><span class="do">##  9 s2026_p3  peso_junio    23</span></span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a><span class="do">## 10 s2026_p4  peso_abril    16</span></span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a><span class="do">## 11 s2026_p4  peso_mayo     25</span></span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a><span class="do">## 12 s2026_p4  peso_junio    26</span></span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>pesos_wide <span class="ot">&lt;-</span> pesos_long <span class="sc">%&gt;%</span></span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> mes,</span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>              <span class="at">values_from =</span> <span class="st">"peso"</span>)</span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>pesos_wide</span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a><span class="do">## # A tibble: 4 × 4</span></span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a><span class="do">##   individuo peso_abril peso_mayo peso_junio</span></span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a><span class="do">##   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;</span></span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a><span class="do">## 1 s2026_p1          15        23         21</span></span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a><span class="do">## 2 s2026_p2          13        21         25</span></span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a><span class="do">## 3 s2026_p3          18        20         23</span></span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a><span class="do">## 4 s2026_p4          16        25         26</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ul>
+<li><p><strong><code>dplyr</code></strong> es la esencia del tidyverse. Proporciona un conjunto coherente de funciones, denominadas <strong>verbos</strong>, que permiten manipular fácilmente nuestra tabla. Algunas de las funciones más importantes son: <code>select</code>, <code>rename</code>, <code>filter</code>, <code>mutate</code>, <code>group_by</code>, <code>summarise</code>, <code>arrange</code>.</p></li>
+<li><p><strong><code>ggplot2</code></strong> permite construir gráficos mediante una <strong>gramática de gráficos por <u>capas</u></strong> a partir de una tabla. La base de cualquier gráfico escrito con ggplot2 está en definir:</p>
+<ul>
+<li><code>ggplot()</code> los datos que se van a utilizar,</li>
+<li><code>aes()</code> relaciona las variables de la tabla con propiedades visuales (ejes, color, tamaño, forma),</li>
+<li><code>geom_*()</code> cómo representar esos valores.</li>
+</ul></li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> pesos_long,         <span class="co"># qué datos vamos a usar</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> mes, <span class="at">y =</span> peso))  <span class="sc">+</span> <span class="co"># qué vamos a pintar</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()                    <span class="co"># qué vamos a dibujar, en este caso puntos</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="04-manejo-datos_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<blockquote class="blockquote">
+<p>Las correspondencias definidas en <code>ggplot(aes(...))</code> se aplican por defecto a todas las capas. Pueden definirse dentro de una capa concreta cuando sólo deben afectar a esa geometría <code>geom_point(aes(...))</code>.</p>
+</blockquote>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> pesos_long, <span class="fu">aes</span>(<span class="at">x =</span> mes, <span class="at">y =</span> peso)) <span class="sc">+</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">color =</span> individuo, <span class="at">group =</span> individuo), <span class="at">linewidth =</span> <span class="fl">1.3</span>) <span class="sc">+</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>),</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>),</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"top"</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="04-manejo-datos_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="nota-grande callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Importante</span>Ahora… TÚ!
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>0A.</strong> Crea una carpeta nueva en el ordenador que se llame <code>stats_intro_r</code></p>
+<p>Dentro de esa carpeta, crea otra carpeta llamada <code>datos</code>. Descarga los siguientes archivos y colócalos en la carpeta que acabas de crear: <a href="0_data/datos_intro_R/pasajeros_aereos.csv" download=""> pasajeros_aereos.csv </a>, <a href="0_data/datos_intro_R/cinturones.csv" download=""> cinturones.csv </a>, <a href="0_data/datos_intro_R/paris.zip" download=""> paris.zip </a>, <a href="0_data/datos_intro_R/arboles_nyc.csv" download=""> arboles_nyc.csv </a> .</p>
+<p><strong>0B.</strong> Abre un nuevo script. Servirá para practicar la conversión entre datos en formato <em>long</em> y formato <em>wide</em>.</p>
+<p><strong>0C.</strong> En el preámbulo del script (al principio):</p>
+<ol type="1">
+<li>Pon un comentario explicando qué va a hacer el <em>script</em></li>
+<li>Fija la carpeta que has creado como directorio de trabajo</li>
+<li>Carga el <em>tidyverse</em></li>
+</ol>
+<blockquote class="blockquote">
+<p>Acostúmbrate a realizar estos pasos siempre que comiences a escribir en un script.</p>
+</blockquote>
+<section id="tidy-data" class="level2">
+<h2 class="anchored" data-anchor-id="tidy-data">1. Tidy data</h2>
+<p><strong>1A.</strong> Importa el fichero <code>pasajeros_aereos.csv</code> usando la función <code>read_csv</code> y guárdalo como un objeto.</p>
+<blockquote class="blockquote">
+<p>Este fichero contiene números de pásajeros aéreos por mes y año en forma de tabla.</p>
+</blockquote>
+<p><strong>1B.</strong> ¿En qué formato están los datos? Conviértelos a formato <em>tidy</em> usando la función <code>pivot_wider</code>. Guarda el nuevo data frame con otro nombre.</p>
+<blockquote class="blockquote">
+<p>Pista: tendrás que evitar que la columna <code>year</code> sea seleccionada.</p>
+</blockquote>
+<p><strong>1C.</strong> Vuelve a convertir la nueva tabla que has creado a formato wide usando la función <code>pivot_longer</code>. Guarda el resultado como otro objeto.</p>
+</section>
+<section id="principales-paquetes-del-tidyverse-dplyr" class="level2">
+<h2 class="anchored" data-anchor-id="principales-paquetes-del-tidyverse-dplyr">2. Principales paquetes del tidyverse: dplyr</h2>
+<p>La ley que obliga a los conductores a llevar cinturón en Reino Unido entró en vigor en enero de 1983. El archivo <code>"cinturones.csv"</code> contiene información sobre fallecimientos en carretera entre enero de 1969 y diciembre de 1984. Vamos a utilizar R para analizarlo y comprender si la entrada en vigor de la ley cambió algo.</p>
+<p><strong>2A.</strong> Importa el fichero <code>cinturones.csv</code> y guárdalo como un objeto.</p>
+<p><strong>2B.</strong> Análisis exploratorio: 1. ¿Qué columnas contiene el objeto? Puedes usar la función <code>head</code> o <code>glimpse</code> para saberlo. 2. Haz un histograma de las columnas que te parezcan interesantes. Usa el operador <code>$</code> para acceder a las columnas del data frame. 3. Usa la función <code>ggplot</code> para obtener un gráfico del número de conductores fallecidos. ¿Ves alguna tendencia?</p>
+<p><strong>2C.</strong> Sólo nos interesan las columnas <code>year</code>, <code>month</code>, <code>conductores_fallecidos</code>, <code>conductores</code> y <code>ley</code>. Selecciónalas usando la función <code>select</code>.</p>
+<p><strong>2D.</strong> No podemos comparar el número de fallecimientos de un año a otro porque el número de conductores es distinto. Crea una nueva columna <code>fallecidos_tasa</code> que muestre la tasa de fallecidos en cada mes.</p>
+<p><strong>2E.</strong> Queremos comparar el porcentaje de fallecidos antes y después de la entrada en vigor de la ley. No obstante, hay muchos más datos de antes que de después. Filtra los datos para tener en cuenta solo aquellos ocurridos a partir de 1980.</p>
+<p><strong>2F.</strong> Por último, vamos a ver en qué años era mayor la tasa de fallecidos. Usa las funciones <code>group_by</code> y <code>summarise</code> para obtener la media de la tasa en cada grupo.</p>
+<blockquote class="blockquote">
+<p>Pista: Tendrás que agrupar por la variable <code>ley</code>.</p>
+</blockquote>
+</section>
+<section id="automatización" class="level2">
+<h2 class="anchored" data-anchor-id="automatización">3. Automatización</h2>
+<p>Podemos usar R y el <em>tidyverse</em> para procesar simultáneamente multitud de ficheros. En el fichero <code>paris.zip</code> encontrarás 17 archivos con datos de reservas de AirBnB en París para distintos momentos de tiempo.</p>
+<p><strong>3A.</strong> Descarga el fichero y extráelo sus contenidos en una carpeta de tu proyecto llamado <code>datos_paris</code>.</p>
+<p><strong>3B.</strong> Abre un nuevo script y haz de esa carpeta tu directorio de trabajo. No te olvides de comentar al principio la función del script y de cargar las librerías.</p>
+<p><strong>3C.</strong> Vamos a explorar los contenidos <strong>del primero</strong> de estos ficheros:</p>
+<ol type="1">
+<li><p>Impórtalo usando <code>read_csv</code>.</p></li>
+<li><p>Usa la función <code>glimpse</code> para ver qué columnas tiene.</p></li>
+<li><p>¡Demasiadas! Usa la función <code>select</code> para quedarte solo con: <code>neighborhood</code>, <code>reviews</code>, <code>overall_satisfaction</code>, <code>bedroom</code> y <code>price</code>.</p></li>
+<li><p>Vamos a comparar los apartamentos disponibles en distintos barrios. Agrupa tus datos por barrio (“neighborhood”) y obtén la media del precio, las valoraciones (“reviews”) y satisfacción general (“overall_satisfaction”).</p>
+<p>Obtén también el número de apartamentos en cada barrio.</p>
+<blockquote class="blockquote">
+<p>Pista: tendrás que usar la función <code>n()</code> dentro de <code>summarize</code>.</p>
+</blockquote></li>
+<li><p>Crea una nueva carpeta en tu carpeta de proyecto que se llame <code>paris_procesados</code>.</p>
+<p>Guarda ahí tus datos en un nuevo CSV usando la función <code>write_csv</code>.</p></li>
+<li><p>Seguramente hayas hecho esto en varias líneas (y esto está genial para ir probando). Vamos a simplificar el <em>script</em> encadenando todas las funciones con <em>pipes</em> (<code>%&gt;%</code>)</p></li>
+</ol>
+<p><strong>3D.</strong> Obtener estos datos para un fichero está bien pero podemos hacer más.</p>
+<p>Usa un bucle y la función <code>list.files</code> para repetir el proceso anterior con <strong>todos los ficheros</strong> de datos.</p>
+<p>¿Cómo puedes guardar estos ficheros automáticamente con distinto nombre? Una opción sería usar el nombre original (contenido en <code>list.files</code>) junto con la función <code>paste</code> y la opción <code>sep = ""</code> (para que no aparezcan las dos <em>strings</em> separadas por espacios) . ¿Se te ocurren otras?</p>
+<blockquote class="blockquote">
+<p>Inténtalo un par de veces. Si esto no te sale, consulta la solución en <a href="https://github.com/arredond/intro-R/blob/master/ejercicios/solucion_automatizado_paris.R"><code>solucion_paris_automatizado.R</code></a>.</p>
+</blockquote>
+<p>Para poner nombres distintos podrías usar la función gsub para cambiar la terminación de los ficheros. Por ejemplo:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Mostrar código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>fichero <span class="ot">&lt;-</span> <span class="st">"tomslee_airbnb_paris_0005_2013-11-27.csv"</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>nombre_guardar <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">".csv"</span>, <span class="st">"_agregados.csv"</span>, fichero)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</section>
+<section id="visualización-de-datos-ggplot2" class="level2">
+<h2 class="anchored" data-anchor-id="visualización-de-datos-ggplot2">4. Visualización de datos: ggplot2</h2>
+<p>Vamos a visualizar algunas propiedades de los árboles plantados en Nueva York. &gt;Utiliza el paquete ggplot y explora sus posibilidades.</p>
+<p><strong>4A.</strong> Importa el fichero <code>arboles_nyc.csv</code></p>
+<p><strong>4B.</strong> Crea un gráfico de nube de puntos (<em>scatter plot</em>) poniendo <code>longitude</code> en el eje X y <code>latitude</code> en el eje Y.</p>
+<p><strong>4C.</strong> No se ve mucho en nuestro mapa. Haz que el color del punto sea el de la especie plantada y fija la transparencia a 0.5</p>
+<blockquote class="blockquote">
+<p>Tendrás que usar la opción <code>alpha</code> dentro de <code>geom_point</code> para fijar la transparencia.</p>
+</blockquote>
+<p><strong>4D.</strong> ¡Mucho mejor! Saca ahora un histograma de los diámetros (<code>tree_dbh</code>)</p>
+<p><strong>4E.</strong> Está bien, pero no nos da información por especie. Crea un gráfico de cajas y bigotes (<em>boxplot</em>) para ver cómo varía el diámetro por especie.</p>
+</section>
+</div>
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const links = [...document.querySelectorAll(
+    "#quarto-sidebar a.sidebar-link[href*='#']"
+  )]
+    .map(link => {
+      const url = new URL(link.href, window.location.href);
+
+      if (url.pathname !== window.location.pathname || !url.hash) {
+        return null;
+      }
+
+      const heading = document.getElementById(
+        decodeURIComponent(url.hash.substring(1))
+      );
+
+      return heading ? { link, heading } : null;
+    })
+    .filter(Boolean);
+
+  if (!links.length) return;
+
+  function updateActiveHeading() {
+    const position = window.scrollY + 160;
+    let current = links[0];
+
+    for (const item of links) {
+      if (item.heading.offsetTop <= position) {
+        current = item;
+      } else {
+        break;
+      }
+    }
+
+    links.forEach(item => {
+      item.link.classList.toggle(
+        "active-section",
+        item === current
+      );
+    });
+  }
+
+  window.addEventListener("scroll", updateActiveHeading, {
+    passive: true
+  });
+
+  window.addEventListener("resize", updateActiveHeading);
+  updateActiveHeading();
+});
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiado");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiado");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© 2026 Sonia Illanas - Creado con Quarto</p>
+</div>   
+    <div class="nav-footer-center">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="mailto:sonia.illanas@uclm.com">
+<p><img src="../../images/Mail.svg" width="30" height="30"></p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://github.com/robinilla">
+<p><img src="../../images/GitHub.svg" width="30" height="30"></p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://orcid.org/0000-0001-7984-1141">
+<p><img src="../../images/ORCID.svg" width="30" height="30"></p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://scholar.google.es/citations?hl=es&amp;user=ew25H7QAAAAJ&amp;view_op=list_works&amp;sortby=pubdate">
+<p><img src="../../images/GoogleScholar.svg" width="30" height="30"></p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://www.researchgate.net/profile/Sonia-Illanas?ev=hdr_xprf">
+<p><img src="../../images/ResearchGate.svg" width="30" height="30"></p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://bsky.app/profile/soniaillanas.bsky.social">
+<p><img src="../../images/bsky.svg" width="30" height="30"></p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://x.com/SoniaIllanas">
+<p><img src="../../images/Twitter.svg" width="30" height="30"></p>
+</a>
+  </li>  
+</ul>
+    </div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const languageMenu =
+    document.getElementById("languages-links-parent");
+
+  const navbar =
+    document.getElementById("navbarCollapse");
+
+  if (!languageMenu || !navbar) {
+    return;
+  }
+
+  const languageItem = languageMenu.closest(".nav-item");
+
+  if (!languageItem) {
+    return;
+  }
+
+  /*
+   * Babelquarto inserta el selector como primer elemento.
+   * Lo retiramos de esa posición y lo añadimos al final
+   * del contenido principal de la barra.
+   */
+  languageItem.parentNode.removeChild(languageItem);
+  navbar.appendChild(languageItem);
+
+  languageItem.classList.add("language-nav-item");
+});
+</script>
+<script>
+(() => {
+  function translateNavbar() {
+    const htmlLanguage =
+      (document.documentElement.lang || "").toLowerCase();
+
+    const pathParts =
+      window.location.pathname.toLowerCase().split("/");
+
+    const isEnglish =
+      htmlLanguage.startsWith("en") ||
+      pathParts.includes("en");
+
+    const labels = isEnglish
+      ? {
+          brand: "Sonia Illanas Website",
+          publications: "Publications",
+          phd: "PhD",
+          conferences: "Conferences",
+          teaching: "Teaching",
+          people: "About me",
+          footer: "Built with Quarto"
+        }
+      : {
+          brand: "Web de Sonia Illanas",
+          publications: "Publicaciones",
+          phd: "Tesis",
+          conferences: "Congresos",
+          teaching: "Recursos",
+          people: "Sobre mí",
+          footer: "Creado con Quarto"
+        };
+
+    function pageName(href) {
+      return (href || "")
+        .split("#")[0]
+        .split("?")[0]
+        .replace(/\/$/, "")
+        .split("/")
+        .pop()
+        .replace(/\.(html|qmd)$/, "");
+    }
+
+    document
+      .querySelectorAll("#quarto-header a.nav-link")
+      .forEach((link) => {
+        const page = pageName(link.getAttribute("href"));
+
+        if (labels[page]) {
+          link.textContent = labels[page];
+        }
+      });
+
+    const navbarTitle = document.querySelector(
+      "#quarto-header .navbar-title"
+    );
+
+    if (navbarTitle) {
+      navbarTitle.textContent = labels.brand;
+    }
+
+    const footerRight = document.querySelector(
+      ".nav-footer-right"
+    );
+
+    if (footerRight) {
+      footerRight.textContent = labels.footer;
+    }
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener(
+      "DOMContentLoaded",
+      translateNavbar
+    );
+  } else {
+    translateNavbar();
+  }
+})();
+</script>
+
+
+
+
+</body></html>

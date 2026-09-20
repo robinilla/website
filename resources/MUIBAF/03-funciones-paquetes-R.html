@@ -1,0 +1,1702 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<link rel="alternate" hreflang="es" href="/resources/MUIBAF/03-funciones-paquetes-R.html" />
+<link rel="alternate" hreflang="en" href="/en/resources/MUIBAF/03-funciones-paquetes-R.en.html" />
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>funciones-paquetes-r – Sonia Illanas Website</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-4c25bb5854eced0c373052ef340e9bbd.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No se han encontrado resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed muibaf-page fullcontent quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Sonia Illanas Website</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Buscar"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Navegación de palanca" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../publications.html"> 
+<span class="menu-text">Publicaciones</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../phd.html"> 
+<span class="menu-text">PhD</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../conferences.html"> 
+<span class="menu-text">Congresos</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../teaching.html"> 
+<span class="menu-text">Recursos</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../people.html"> 
+<span class="menu-text">Gente</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <h1 class="quarto-secondary-nav-title no-breadcrumbs"></h1>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Buscar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../resources/MUIBAF/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Inicio de las prácticas</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Fundamentos de R</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../resources/MUIBAF/00-beginning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">0. Antes de empezar</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../resources/MUIBAF/01-intro-R.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1. Primer contacto con R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../resources/MUIBAF/01-intro-R.html#r-panels" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.1. Paneles de R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../resources/MUIBAF/01-intro-R.html#r-consola" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.2. R ¿Script o consola?</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../resources/MUIBAF/01-intro-R.html#r-calculadora" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.3. R como calculadora</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../resources/MUIBAF/01-intro-R.html#r-objects" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.4. Asignación de objetos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../resources/MUIBAF/01-intro-R.html#r-naming" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.5. Nombres de objetos y scripts</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../resources/MUIBAF/01-intro-R.html#r-errors" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.6. Errores y warnings</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../resources/MUIBAF/02-estructuras-datos-R.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2. Tipo y estructura de los datos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../resources/MUIBAF/02-estructuras-datos-R.html#vectors" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.1. Vectores</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../resources/MUIBAF/02-estructuras-datos-R.html#list" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.2. Listas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../resources/MUIBAF/02-estructuras-datos-R.html#matrix" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.3. Matrices</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../resources/MUIBAF/02-estructuras-datos-R.html#df" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.4. Data frames y tibbles</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../resources/MUIBAF/02-estructuras-datos-R.html#factores" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.5. Factores (variables categóricas)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../resources/MUIBAF/02-estructuras-datos-R.html#NULL" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.6. Diferencia entre <code>NULL</code> y <code>NA</code></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../resources/MUIBAF/03-funciones-paquetes-R.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">3. Funciones y paquetes en R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../resources/MUIBAF/03-funciones-paquetes-R.html#uso-funciones" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.1. Uso de funciones</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../resources/MUIBAF/03-funciones-paquetes-R.html#argumentos" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.2. Argumentos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../resources/MUIBAF/03-funciones-paquetes-R.html#install-packages" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.3. Instalar y cargar paquetes</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../resources/MUIBAF/03-funciones-paquetes-R.html#package-citation" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.4. ¿Cómo citar los paquetes de R en un trabajo?</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../resources/MUIBAF/03-funciones-paquetes-R.html#own-functions" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.5. Funciones propias</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../resources/MUIBAF/03-funciones-paquetes-R.html#control-structures" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.6. Estructuras de control</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../resources/MUIBAF/04-manejo-datos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4. Tibbles y tidyverse</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../resources/MUIBAF/04-manejo-datos.html#tibbles" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.1. De data frames a tibbles</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../resources/MUIBAF/04-manejo-datos.html#tidyv" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.2. ¿Qué es el tidyverse?</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../resources/MUIBAF/04-manejo-datos.html#tidydata" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.3. Datos ordenados o <em>tidy data</em></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../resources/MUIBAF/04-manejo-datos.html#pipe" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.4. El operador pipe</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../resources/MUIBAF/04-manejo-datos.html#paquetes-tidyverse" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.5. Principales paquetes del tidyverse</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Análisis estadísticos básicos</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../resources/MUIBAF/05-stats-medias.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5. Estadística básica</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../resources/MUIBAF/05-stats-medias.html#data-preparation" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.1. Preparación y exploración de los datos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../resources/MUIBAF/05-stats-medias.html#group-mean-comparison" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.2. Comparaciones entre dos grupos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../resources/MUIBAF/05-stats-medias.html#group-mean-comparison-more-than-2-levels" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.3. Comparaciones entre más de dos grupos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../resources/MUIBAF/05-stats-medias.html#interactions" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.4. Comparación de efectos entre variables</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../resources/MUIBAF/05-stats-medias.html#repeated-samples" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.5. Muestras dependientes o medidas repetidas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../resources/MUIBAF/05-stats-medias.html#relations" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.6. Relaciones entre variables</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+<section id="funciones-y-paquetes" class="level2">
+<h2 class="anchored" data-anchor-id="funciones-y-paquetes">3. Funciones y paquetes</h2>
+<section id="uso-funciones" class="level3">
+<h3 class="anchored" data-anchor-id="uso-funciones">3.1. Uso de funciones</h3>
+<p>Para crear, modificar, eliminar objetos, realizar análisis…en R utilizamos <strong>funciones</strong>!</p>
+<p>R (“base-R”) tiene muchas funciones ya instaladas. De hecho, hemos utilizado algunas en los ejemplos anteriores <code>(c(), list(), data.frame(), sum(), mean()).</code></p>
+</section>
+<section id="argumentos" class="level3">
+<h3 class="anchored" data-anchor-id="argumentos">3.2. Argumentos</h3>
+<p>Las funciones son instrucciones para hacer diferentes cosas y pueden tener uno o varios argumentos. Los argumentos son los parámetros que puedo o tengo que especificar (según cómo esté construida la función) para poder ejecutarla. A veces algunos de esos argumentos van a estar definidos por defecto, y la función va a funcionar sin necesidad de que yo los cambie, pero si quiero podré cambiarlo por otro.</p>
+<p>Por ejemplo, la función <code>sort()</code>, sirve para ordenar los elementos de un vector, y tiene varios argumentos.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">2</span>),            <span class="co"># argumento 1: el vector que quieres ordenar</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">decreasing =</span> <span class="cn">TRUE</span>)      <span class="co"># argumento 2: el orden en el que quieres ordenarlo</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 4 2 1</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="nota-grande callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>SOS - Ayuda
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Si tienes dudas sobre cómo funciona una función (qué hace) y los argumentos que puede incluir, puedes abrir la ayuda de esa función escribiendo interrogación y el nombre de la función <code>?sort</code>.</p>
+<p>Si no sabemos su nombre exacto o te devuelve una ayuda de una funcion de un paquete que no es la que buscas puedes escribir doble interrogación <code>??sort</code>. Ello amplía la búsqueda a toda la documentación que tiene R y devuelve todas las páginas de la ayuda en donde aparece la palabra que buscas.</p>
+<p>Si tienes dudas sobre alguna función de algún paquete instalado que no recuerdas cómo se llama puedes ir al panel de “la zona mágica” y pinchar en la pestaña de “packages”. Entonces aparecerán todos los paquetes que tienes instalados. Pinchando en el que te interese aparecerán todas las funciones que conforman ese paquete, y al seleccionar la función que estés buscando en cuestión se abrirá su panel de ayuda.</p>
+</div>
+</div>
+</div>
+<div class="nota-grande callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Nota sobre cómo actúan las funciones
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>generos_arboles <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Quercus"</span>, <span class="st">"Fagus"</span>, <span class="st">"Sorbus"</span>, <span class="st">"Acer"</span>, <span class="st">"Pinus"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>(generos_arboles)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] "Acer"    "Fagus"   "Pinus"   "Quercus" "Sorbus"</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>generos_arboles</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] "Quercus" "Fagus"   "Sorbus"  "Acer"    "Pinus"</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Como observarás aparecen dos líneas de resultados. El primero es el esperado: he aplicado la función y me ha devuelto el vector ordenado, pero en el segundo, la variable <code>generos_arboles</code> sigue estando desordenada.</p>
+<p>Esto ocurre porque la mayoría de las funciones que utilizaremos devuelven un nuevo resultado y no modifican el objeto original. Para conservar ese resultado debemos asignarlo a un objeto, esa asignación puede ser:</p>
+<ul>
+<li><p>Opción 1: creando un objeto nuevo<br>
+<code>generos_ordenados &lt;- sort(generos_arboles)</code></p></li>
+<li><p>Opción 2: sobreescribiendo el objeto original<br>
+<code>generos_arboles &lt;- sort(generos_arboles)</code></p></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="install-packages" class="level3">
+<h3 class="anchored" data-anchor-id="install-packages">3.3. Instalar y cargar paquetes</h3>
+<div class="nota-grande callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Regla número 1 de la programación: Reutiliza
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>No reinventes la rueda: si puedes usar alguna función que ya exista, úsala. Ahorrarás tiempo y esfuerzo.</p>
+</div>
+</div>
+<p>A veces las funciones que vienen instaladas con R (“base-R”) no son suficientes para cumplir nuestros propósitos. Para ello, existen multitud de paquetes disponibles en CRAN, que podemos utilizar en R en dos pasos:</p>
+<p>Para instalar cualquier paquete en nuestro ordenador hay que usar la función <code>install.packages("package_name")</code>.<br>
+Para cargar un paquete en nuestro script con la función <code>library(package_name)</code>.</p>
+<blockquote class="blockquote">
+<p>Para instalar librerías el nombre del paquete debe ir entrecomillado. No así para cargar librerías.</p>
+</blockquote>
+<p>Normalmente, un paquete se instala una vez <u>por instalación de R</u> y se carga en cada nueva sesión de RStudio en la que se necesite.</p>
+<p>Una buena idea es cargar todos los paquetes que necesites al principio de cada script.</p>
+<blockquote class="blockquote">
+<p>A través de un paquete puedes cargar no sólo funciones, sino también objetos (data frames, matrices, vectores…).</p>
+</blockquote>
+</section>
+<section id="package-citation" class="level3">
+<h3 class="anchored" data-anchor-id="package-citation">3.4. ¿Cómo citar los paquetes de R en un trabajo?</h3>
+<p>Las funciones que cargarmos con las librerías han sido creada por distintos desarrolladores y se debe (y merecen!) que les demos crédito por ello citándolos. Para conocer cómo debe citarse cada paquete utiliza <code>citation("package_name")</code>. Para poder usar esta función debes tener el paquete instalado, si no aparecerá un error del tipo: <em>Error en citation(“package_name”): no hay paquete llamado “package_name”.</em></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">citation</span>(<span class="st">"spAbundance"</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="do">## To cite package 'spAbundance' in publications, please cite the Doser,</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Finley, Kéry, Zipkin (2024) paper. If using functions lfMsAbund,</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="do">## sfMsAbund, lfMsNMix, sfMsNMix, lfMsDS, or sfMsDS, please also cite the</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="do">## Doser, Finley, Banerjee (2023) paper that developed much of the code</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="do">## used for these functions.</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="do">##   Doser, J. W., Finley A. O., Kéry, M., &amp; Zipkin E. F. (2024).</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="do">##   spAbundance: An R package for single-species and multi-species</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="do">##   spatially explicit abundance models Methods in Ecology and Evolution,</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="do">##   15, 1024-1033. https://doi.org/10.1111/2041-210X.14332</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="do">##   Doser, J. W., Finley A. O., &amp; Banerjee, S. (2023). Joint species</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="do">##   distribution models with imperfect detection for high-dimensional</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="do">##   spatial data Ecology e4137. https://doi.org/10.1002/ecy.4137</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="do">## To see these entries in BibTeX format, use 'print(&lt;citation&gt;,</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="do">## bibtex=TRUE)', 'toBibtex(.)', or set</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="do">## 'options(citation.bibtex.max=999)'.</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Una buena práctica, además, es añadir en el apartado de metodología la versión del paquete que estás utilizando. A veces cambian algunas funciones entre versiones del mismo paquete y es útil saber cuál es la que has utilizado para tu análisis. La versión del paquete se puede consultar en la zona mágica apartado packages, al lado del paquete que quieras o mediante <code>packageVersion("spAbundance")</code>.</p>
+</section>
+<section id="own-functions" class="level3">
+<h3 class="anchored" data-anchor-id="own-functions">3.5. Funciones propias</h3>
+<p>No obstante, existirán ocasiones en las que necesitarás crear tu propia función. En estas prácticas <strong>no</strong> vamos a entrar en detalle sobre la creación de funciones propias (aunque son muy útiles cuando hay que repetir tareas y permiten automatizar procesos de manera muy eficiente). Simplemente a continuación presentaré las partes clave que tienen que definirse:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>nombre <span class="ot">&lt;-</span> <span class="cf">function</span>(argumento1, argumento2, <span class="at">argumento3 =</span> <span class="st">"estadística."</span>) {</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">paste</span>(<span class="st">"Hola, me llamo"</span>,</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>        argumento1,</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>        <span class="st">"y me encantaría aprender"</span>,</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>        argumento2,</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>        <span class="st">"y"</span>,</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>        argumento3)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="fu">nombre</span>(<span class="st">"Sonia"</span>, <span class="st">"diseño muestral"</span>)</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] "Hola, me llamo Sonia y me encantaría aprender diseño muestral y estadística."</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Hay que definir:<br>
+1. <strong><code>nombre:</code></strong> ¿cómo vamos a llamar a ese objeto? (La función creada pasará a ser un objeto de nuestro environment),<br>
+2. utilizar la palabra clave <strong><code>function</code></strong>,<br>
+3. poner los <strong><code>argumentos</code></strong> clave que vamos a utilizar entre paréntesis y separados por comas. Se puede definir el valor que toma un argumento por defecto,<br>
+4. dar las instrucciones que queramos realizar entre llaves (<strong><code>{ instrucciones }</code></strong>).</p>
+<p>Por defecto, R devuelve lo que haya en la última línea de la función. Sin embargo, a veces queremos que nuestra función devuelva otra cosa, para ello hay que usar el comando <code>return</code>.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>funcion_ejemplo <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  y <span class="ot">&lt;-</span> x<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> <span class="dv">3</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  y</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">funcion_ejemplo</span>(<span class="dv">3</span>) <span class="co"># Devuelve 12, el valor esperado</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 12</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>y                  <span class="co"># Devuelve un error.</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="do">## Error:</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="do">## ! objeto 'y' no encontrado</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>funcion_ejemplo2 <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">x =</span> <span class="dv">5</span>) {</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>  y <span class="ot">&lt;-</span> x<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> <span class="dv">3</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>  y</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="fu">funcion_ejemplo2</span>(<span class="dv">3</span>)</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 12</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<blockquote class="blockquote">
+<p>En ambos ejemplos <code>x</code> es el argumento de la función. En el primer ejemplo no tiene un valor por defecto, en el segundo ejemplo si lo tiene. ¿Qué pasaría si haces <code>funcion_ejemplo()</code> y si haces <code>funcion_ejemplo2()</code>? ¿Entiendes la diferencia?</p>
+</blockquote>
+<div class="nota-grande callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Objetos dentro de funciones: entorno local vs.&nbsp;entorno global
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>El objeto <code>y</code> solo existe en el <strong>entorno local</strong>, es decir, <u>dentro de la función</u>. No existe en el <strong>entorno global</strong>, es decir, en mi environment.</p>
+<p>Si quieres que un objeto creado dentro de una función se guarde dentro de tu environment global, cuando defines ese objeto dentro de la función en vez de poner <code>&lt;-</code> debes poner <code>&lt;&lt;-</code>.</p>
+<p>Hay que tener cuidado con ésto porque <u>si el nombre de ese objeto ya existe en el environment global, sobreescribirá la información de ese objeto</u>.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="control-structures" class="level3">
+<h3 class="anchored">3.6. Estructuras de control</h3>
+<p>A la hora de dar órdenes es importante poder especificar condiciones o repeticiones:</p>
+<blockquote class="blockquote">
+<p>Si llueve, tiende la ropa. Si no, saca al perro y da tres vueltas a la manzana.</p>
+</blockquote>
+<p>En programación, a este tipo de directrices se les llama estructuras de control.</p>
+<p>Las estructuras de control tienen su propia sintaxis. En general hay que usar las palabras que crean las diferentes estructuras de control <code>(condiciones)</code> y <code>{instrucciones}</code>. Lo veremos a continuación.</p>
+<p><strong>3.6.1. Bucles: <code>for</code> y <code>while</code></strong></p>
+<p>Un bucle define cuántas veces se debe repetir una cierta acción. El bucle más típico es el <code>for</code>:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">10</span><span class="sc">:</span><span class="dv">1</span>) {</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"Quedan"</span>, i, <span class="st">"segundos para el despegue"</span>))</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] "Quedan 10 segundos para el despegue"</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] "Quedan 9 segundos para el despegue"</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] "Quedan 8 segundos para el despegue"</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] "Quedan 7 segundos para el despegue"</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] "Quedan 6 segundos para el despegue"</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] "Quedan 5 segundos para el despegue"</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] "Quedan 4 segundos para el despegue"</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] "Quedan 3 segundos para el despegue"</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] "Quedan 2 segundos para el despegue"</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] "Quedan 1 segundos para el despegue"</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Es muy frecuente empezar un bucle con un vector vacío (“inicializado”) y luego ir rellenándolo con las operaciones del bucle. En este ejemplo vamos a rellenar un vector vacío con 10:1 muestras aleatorias de un color primario.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>colores_primarios <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>) {</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  colores_primarios[i] <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"Magenta"</span>, <span class="st">"Cian"</span>, <span class="st">"Amarillo"</span>),</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">size =</span> <span class="dv">1</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<blockquote class="blockquote">
+<p>El contador, i, toma todos los valores posibles del vector 1:100, hace una instrucción y guarda el resultado en la posición que en el vector que le hemos dado. Si no ponemos la instrucción print cuando ejecutemos el bucle no nos mostrará el resultado mientras lo está realizando, pero cuando consultamos el objeto que habíamos creado vacío veremos que éste contiene distintos valores en sus distintas posiciones. Cada uno de esos valores son las elecciones aleatorias que ha tomado R de nuestro vector de colores primarios.</p>
+</blockquote>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>colores_primarios</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="do">##   [1] "Amarillo" "Magenta"  "Magenta"  "Cian"     "Amarillo" "Cian"    </span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="do">##   [7] "Amarillo" "Magenta"  "Cian"     "Magenta"  "Cian"     "Cian"    </span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="do">##  [13] "Cian"     "Amarillo" "Magenta"  "Cian"     "Magenta"  "Amarillo"</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="do">##  [19] "Amarillo" "Cian"     "Magenta"  "Cian"     "Cian"     "Cian"    </span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="do">##  [25] "Amarillo" "Cian"     "Amarillo" "Cian"     "Magenta"  "Amarillo"</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="do">##  [31] "Amarillo" "Cian"     "Magenta"  "Magenta"  "Amarillo" "Cian"    </span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="do">##  [37] "Cian"     "Cian"     "Cian"     "Cian"     "Amarillo" "Amarillo"</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="do">##  [43] "Cian"     "Cian"     "Cian"     "Amarillo" "Magenta"  "Magenta" </span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="do">##  [49] "Magenta"  "Amarillo" "Magenta"  "Magenta"  "Amarillo" "Amarillo"</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="do">##  [55] "Cian"     "Cian"     "Cian"     "Cian"     "Cian"     "Cian"    </span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="do">##  [61] "Magenta"  "Amarillo" "Cian"     "Cian"     "Magenta"  "Cian"    </span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="do">##  [67] "Cian"     "Magenta"  "Cian"     "Amarillo" "Magenta"  "Magenta" </span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="do">##  [73] "Cian"     "Amarillo" "Amarillo" "Amarillo" "Amarillo" "Cian"    </span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="do">##  [79] "Amarillo" "Magenta"  "Cian"     "Amarillo" "Magenta"  "Magenta" </span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="do">##  [85] "Magenta"  "Amarillo" "Cian"     "Amarillo" "Cian"     "Cian"    </span></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="do">##  [91] "Amarillo" "Cian"     "Magenta"  "Amarillo" "Amarillo" "Amarillo"</span></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="do">##  [97] "Magenta"  "Magenta"  "Magenta"  "Magenta"</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>También podemos usar dos bucles anidados para, por ejemplo, recorrer los elementos de una matriz.</p>
+<p>En los bucles <code>for</code> sabemos de antemano cuántas veces queremos repetir las acciones. En cambio, los bucles <code>while</code> se utilizan para repetir una instrucción hasta que se alcanza una condición:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> (x <span class="sc">!=</span> <span class="dv">3</span>) {</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(x)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="dv">1</span>)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 0</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 6</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 1</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 5</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 10</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 7</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 4</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 8</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 7</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 8</span></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 1</span></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 9</span></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 8</span></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 10</span></span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 7</span></span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 10</span></span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 1</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<blockquote class="blockquote">
+<p>Mientras x != 3 (distinto) repite la siguiente instrucción. Cuando x == 3 (igual) el bucle se detiene.</p>
+</blockquote>
+<p><strong>3.6.2. Condiciones: <code>if</code> , <code>else</code></strong></p>
+<p>La estructura if/else sirve para ordenar que se ejecute un comando sólo si se cumple una cierta condición (<code>if</code>). Si esa condición no se cumple, puede hacer otra cosa (<code>else</code>).</p>
+<p>Por lo general, esta estructura suele usarse dentro de una función, de un bucle o de una tabla.</p>
+<p>Ejemplo: Tenemos un vector de individuos en diferentes poblaciones y queremos saber qué poblaciones podemos considerar grandes o pequeñas. El criterio para considerar que la población es grande es que supere los 10000 individuos.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>poblaciones <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">200</span>, <span class="dv">120000</span>, <span class="dv">1300000</span>, <span class="dv">2300</span>, <span class="dv">9500</span>)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (indiv <span class="cf">in</span> poblaciones) {</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (indiv <span class="sc">&gt;</span> <span class="dv">10000</span>) {</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">"Es grande"</span>)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">"Es pequeña"</span>)</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] "Es pequeña"</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] "Es grande"</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] "Es grande"</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] "Es pequeña"</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] "Es pequeña"</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>No siempre hace falta que haya cláusula <code>else</code>. Si no se define ninguna condición con el <code>else</code>, el programa no hará nada.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>poblaciones <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">200</span>, <span class="dv">120000</span>, <span class="dv">1300000</span>, <span class="dv">2300</span>, <span class="dv">9500</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (indiv <span class="cf">in</span> poblaciones) {</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (indiv <span class="sc">&gt;</span> <span class="dv">10000</span>) {</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">"Es grande"</span>)</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] "Es grande"</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] "Es grande"</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<blockquote class="blockquote">
+<p>También se pueden concatenar varias condiciones. Por ejemplo, para poblaciones pequeñas cuando sea menor a 5000 dime que son poblaciones en riesgo.</p>
+</blockquote>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>poblaciones <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">200</span>, <span class="dv">120000</span>, <span class="dv">1300000</span>, <span class="dv">2300</span>, <span class="dv">9500</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (indiv <span class="cf">in</span> poblaciones) {</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (indiv <span class="sc">&gt;</span> <span class="dv">10000</span>) {</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">"Es grande"</span>)</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (indiv <span class="sc">&gt;</span> <span class="dv">5000</span>) {</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>      <span class="fu">print</span>(<span class="st">"Es pequeña y sin riesgo"</span>)</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>    }<span class="cf">else</span> {</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>      <span class="fu">print</span>(<span class="st">"Es pequeña y con  riesgo"</span>)</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] "Es pequeña y con  riesgo"</span></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] "Es grande"</span></span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] "Es grande"</span></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] "Es pequeña y con  riesgo"</span></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] "Es pequeña y sin riesgo"</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><strong>3.6.3. Vectorización</strong></p>
+<p>R es un lenguaje hecho para trabajar con vectores. Muchas funciones base sirven tanto para un vector de un solo elemento como de varios elementos. Cuando les pasamos un vector de varios elementos, R procesa todos a la vez.</p>
+<blockquote class="blockquote">
+<p>A R se le da muy bien el trabajo simultáneo, pero no tanto el trabajo secuencial. Eso se traduce en que es más eficiente trabajando con vectores que con bucles, especialmente si son largos y tienen muchas instrucciones.</p>
+</blockquote>
+<p>Al proceso de adaptar una función para que trabaje con vectores de cualquier longitud se le llama <strong>vectorización</strong>. La vectorización es un proceso complejo pero importante para escribir programas eficientes.</p>
+<p>Hay dos estructuras de control que han sido vectorizadas y son MUY útiles.</p>
+<p><strong>3.6.3.1. <code>ifelse</code></strong></p>
+<p>La función <code>ifelse</code> es una versión vectorizada de una condición <code>if/else</code>. Toma tres argumentos: un test lógico, el resultado si el test es verdadero y el resultado si el test es falso.</p>
+<p>El ejemplo anterior quedaría de la siguiente manera:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ifelse</span>(poblaciones <span class="sc">&gt;</span> <span class="dv">10000</span>, <span class="st">"Es grande"</span>, <span class="st">"Es pequeña"</span>)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] "Es pequeña" "Es grande"  "Es grande"  "Es pequeña" "Es pequeña"</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>De igual manera podemos escribir condiciones <code>ìfelse</code> anidadas:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ifelse</span>(poblaciones <span class="sc">&gt;</span> <span class="dv">10000</span>, <span class="st">"Es grande"</span>,</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">ifelse</span>(poblaciones <span class="sc">&gt;</span> <span class="dv">5000</span>, <span class="st">"Es pequeña y sin riesgo"</span>,</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>              <span class="st">"Es pequeña y con riesgo"</span>))</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] "Es pequeña y con riesgo" "Es grande"              </span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="do">## [3] "Es grande"               "Es pequeña y con riesgo"</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="do">## [5] "Es pequeña y sin riesgo"</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<blockquote class="blockquote">
+<p>Fíjate que ambos resultados son iguales.</p>
+</blockquote>
+<p><strong>3.6.3.2. <code>apply</code></strong></p>
+<p>Cuando nuestra función no está vectorizada, es decir, no puede aplicarse a todos los elementos de un vector a la vez, aún nos queda un as en la manga:</p>
+<p>La familia de funciones <code>apply</code> sirven para aplicar una función a los elementos de un <code>vector</code>, <code>lista</code>, <code>matriz</code>… Los casos más típicos son <code>lapply</code>, que devuelve una lista, y <code>sapply</code>, que devuelve un vector.</p>
+<p>Imagina que tienes una lista con los pesos de las aves de distintas poblaciones y queremos hallar la media y la desviación típica de cada población:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>pesos <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">pob_1 =</span> <span class="fu">c</span>(<span class="dv">32</span>, <span class="dv">24</span>, <span class="dv">56</span>, <span class="dv">47</span>, <span class="dv">21</span>), <span class="at">pob_2 =</span> <span class="fu">c</span>(<span class="dv">13</span>, <span class="dv">16</span>, <span class="dv">21</span>, <span class="dv">12</span>, <span class="dv">23</span>))</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(pesos, mean) <span class="co"># Devuelve una lista</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="do">## $pob_1</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 36</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="do">## $pob_2</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 17</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(pesos, sd)   <span class="co"># Devuelve una lista</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="do">## $pob_1</span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 15.04992</span></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="do">## $pob_2</span></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 4.84768</span></span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(pesos, mean) <span class="co"># Devuelve un vector</span></span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a><span class="do">## pob_1 pob_2 </span></span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a><span class="do">##    36    17</span></span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(pesos, sd)   <span class="co"># Devuelve un vector</span></span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a><span class="do">##    pob_1    pob_2 </span></span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a><span class="do">## 15.04992  4.84768</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<blockquote class="blockquote">
+<p>La clase de objeto que quiero obtener dependerá de cómo quiera utilizar posteriormente ese objeto.</p>
+</blockquote>
+<div class="nota-grande callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Comentarios adicionales, importantes, antes de comenzar a trabajar con R.
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p>Hasta ahora hemos visto cómo utilizar R, aunque de manera un poco caótica.</p>
+<p>Cuando empezamos a manipular datos y producir resultados y gráficos, conviene tener un <strong>proyecto organizado.</strong> Si os acostumbráis a trabajar de una manera organizada y constante luego será mucho más fácil buscar información de manera rápida, reutilizar código para utilizar en otros análisis o gráficos, encontrar resultados, etc.</p>
+<p>Cada uno puede organizarse de la manera que le resulte más útil, pero existen ciertos buenos hábitos a la hora de trabajar:</p>
+<ol type="1">
+<li>Un proyecto bien organizado debe estar en una <u>sola carpeta</u>. Dentro de ella tendremos diferentes subcarpetas para:</li>
+</ol>
+<ul>
+<li>Datos<br>
+</li>
+<li>Scripts<br>
+</li>
+<li>Gráficos</li>
+</ul>
+<ol start="2" type="1">
+<li><p>Utiliza una forma de nombrar todo: directorios de trabajo, carpetas, nombres de ficheros…</p></li>
+<li><p>Tengo mi libro en blanco y las carpetas organizadas, ¿cómo comienzo a escribir en un script?</p></li>
+</ol>
+<p>Todo buen script debe comenzar con un preámbulo que contenga:</p>
+<ul>
+<li>una descripción de qué hace el script,<br>
+</li>
+<li>quién ha escrito ese script (nombre y correo),<br>
+</li>
+<li>fecha: cuando he creado ese script y cuándo ha sido la última vez que lo he modificado,<br>
+</li>
+<li>el camino (“path”) al directorio de trabajo (*),<br>
+</li>
+<li>las librerías que se van a utilizar (incluye su versión con un comentario! e.g.&nbsp;<code>library(tidyverse) # v2.0.0</code>).</li>
+</ul>
+<p>(*) <strong>Directorios de trabajo</strong></p>
+<p>En R (al igual que en muchos otros lenguajes de programación), el directorio de trabajo es la carpeta por defecto donde R buscará ficheros y guardará resultados (imágenes, scripts, tablas…).</p>
+<p>Cada vez que abramos RStudio, el directorio de trabajo será el que viene por defecto. Debemos cambiarlo en cada sesión. El lugar ideal para hacerlo es al comienzo de nuestro script (el preámbulo).</p>
+<blockquote class="blockquote">
+<p>¿Y qué pasa si tengo algunos datos en otro directorio de trabajo? No os preocupéis por ello, se pueden leer otras rutas para cargar datos, funciones, resultados distintas al directorio de trabajo que se defina. De igual manera se pueden guardar gráficos y resultados en otras carpetas que no sean el directorio de trabajo que hemos definido al principio del script.</p>
+</blockquote>
+<p>Para saber cuál es nuestro directorio de trabajo actual: <code>getwd()</code>. Para cambiar el directorio de trabajo: <code>setwd(RUTA)</code>.</p>
+<blockquote class="blockquote">
+<p>Nota: R utiliza barras normales <code>/</code> para separar las carpetas de un directorio, mientras que Windows utiliza barras invertidas <code>\</code>. Si copias directamente de una carpeta de Windows la ruta debes acordarte de cambiar las barras. Sino R producirá un error.</p>
+</blockquote>
+<p>Para ver qué archivos hay en tu directorio de trabajo o en otras carpetas puedes usar la función <code>list.files()</code>. Esta función permite ver todos los elementos, carpetas y ficheros. A su vez la función permite ver los elementos que contienen otras carpetas si están dentro de ella, por ejemplo, si existe la carpeta datos: <code>list.files("datos/")</code>, devolverá todos los ficheros que contiene la carpeta datos.</p>
+</div>
+</div>
+</div>
+<div class="nota-grande callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Importante</span>Ahora… TÚ!
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<section id="funciones" class="level2">
+<h2 class="anchored" data-anchor-id="funciones">1. Funciones:</h2>
+<p><strong>1A)</strong> Crea una función que añada las palabras “y tal” a cualquier string que pases como input. El resultado debería ser el siguiente:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Me encanta programar y tal"</code></pre>
+</div>
+</div>
+<blockquote class="blockquote">
+<p>Pista: Tendrás que usar la función paste.</p>
+</blockquote>
+<p>¿Qué ocurre si das un vector de varios strings como argumento a la función? <code>add_string(c("Hola", "Qué tal"))</code></p>
+<p><strong>1B)</strong> Crea una función que calcule el área y el volumen de un cilindro en función de su radio y su altura. Haz que altura sea un argumento opcional con valor por defecto 5.</p>
+</section>
+<section id="estructuras-de-control" class="level2">
+<h2 class="anchored" data-anchor-id="estructuras-de-control">2. Estructuras de control</h2>
+<p><code>for</code></p>
+<p><strong>2A)</strong> Es hora de castigos: Saca en pantalla diez mil veces la frase “No llamaré a ningún objeto data2”. Tendrás que usar la función <code>print</code> dentro del bucle.</p>
+<p><strong>2B)</strong> La serie de Fibonacci aparece constantemente en la naturaleza. En ella, cada elemento es igual a la suma de los dos anteriores: <code>$x_{i} = x_{i - 1} + x_{i - 2}$</code></p>
+<ul>
+<li>Crea un bucle para calcular los primeros 300 elementos de la serie.</li>
+</ul>
+<blockquote class="blockquote">
+<p>Pista: Tendrás que inicializar el vector con los dos primeros valores de la serie, 0 y 1.</p>
+</blockquote>
+<ul>
+<li>Utiliza ese bucle para crear una función que calcule los n primeros elementos de la serie.</li>
+</ul>
+<p><code>while</code></p>
+<ul>
+<li>Vamos a repetir el bucle de la serie de Fibonacci, pero en lugar de parar cuando alcance un número de repeticiones, el bucle parará cuando el último elemento calculado sea mayor de 1000.</li>
+</ul>
+<blockquote class="blockquote">
+<p>Tendrás que utilizar un contador explícito, es decir, inicializarlo y luego añadirle uno en cada vuelta del bucle. Si no te sale, puedes encontrar la solución <a href="https://github.com/arredond/intro-R/blob/master/ejercicios/2-soluciones-avanzados.md">“aquí.”</a></p>
+</blockquote>
+<p><code>ifelse</code></p>
+<p><strong>2C)</strong> Crea un pequeño programa que recorra los números del 1 al 100 y saque en pantalla “par” o “impar” si el número es par o impar.</p>
+<p><strong>2D)</strong> Vamos a crear una función solucionadora de ecuaciones de segundo grado. Debe tomar tres argumentos de entrada, a, b y c tal que <span class="math inline">\(x = \frac{-b \pm \sqrt(b^2 - 4 \times a \times c)}{2 \times a}\)</span></p>
+<p>La función debe comprobar, primero, si el discriminante (lo que va dentro de la raíz cuadrada) es negativo, y de ser así devolver un mensaje como “La ecuación no tiene soluciones”.</p>
+<p>Si el discriminante es positivo, calcula las dos soluciones posibles de x y devúelvelas en un solo vector.</p>
+</section>
+</div>
+</div>
+</div>
+<div class="nota-grande callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Importante</span>3. Funciones avanzadas
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>A continuación veréis algunos ejercicios avanzados: <u>no los resolveremos en clase</u>. Puedes probar si te salen (te animo a ello!). Escríbeme si te quedas atascado en algún apartado.</strong></p>
+<p><strong>3A) Ejercicio de dinámica de poblaciones. </strong></p>
+<p>Tenemos los siguientes datos:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>años <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">1963</span>, <span class="dv">1988</span>, <span class="at">by=</span><span class="dv">1</span>)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>Nt <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">9</span>, <span class="dv">14</span>, <span class="dv">16</span>, <span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">16</span>, <span class="dv">30</span>, <span class="dv">14</span>, <span class="dv">12</span>, <span class="dv">19</span>, <span class="dv">51</span>, <span class="dv">11</span>, <span class="dv">7</span>, <span class="dv">137</span>, <span class="dv">204</span>, <span class="dv">67</span>, <span class="dv">197</span>, <span class="dv">183</span>, <span class="dv">149</span>, <span class="dv">102</span>, <span class="dv">141</span>, <span class="dv">147</span>, <span class="dv">178</span>, <span class="dv">52</span>)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>Nt1 <span class="ot">&lt;-</span> <span class="fu">c</span>(Nt[(<span class="sc">-</span><span class="dv">1</span>)], <span class="cn">NA</span>)          <span class="co">#¿Comprendes esto? Analiza lo que estás haciendo siempre.</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ul>
+<li>¿Cómo ha variado la población con el tiempo? ¿Cuándo aumenta drásticamente la población?</li>
+</ul>
+<blockquote class="blockquote">
+<p>Míralo en un gráfico.</p>
+</blockquote>
+<ul>
+<li>Observa si existe relación entre el tamaño de la población (Nt) y la tasa de crecimiento per cápita de la población.</li>
+</ul>
+<blockquote class="blockquote">
+<p>Pista: Haz primero una función que calcule la tasa de crecimiento per cápita entre Nt y Nt1.</p>
+</blockquote>
+<ul>
+<li>Sigamos avanzando: ¿cómo crees que es la población en la actualidad?</li>
+</ul>
+<blockquote class="blockquote">
+<p>Para conocerlo se debe analizar el tipo de relación que hay, a través de un modelo, entre mi variable explicativa (población observada) y mi variable dependiente (tasa de crecimiento per cápita). Si quieres conocerlo puedes ajustar un modelo lineal, un modelo logarítmico, un modelo polinomial…</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>En este momento del curso no nos vamos a detener para ver cómo hacerlo (puedes llamar a tu amigo Google), pero te adelantamos que la varianza explicada de nuestros datos por el modelo es muy pequeña. Por tanto, con los datos que introducimos al modelo, éste no es capaz de generar un buen ajuste y por eso <strong>NO </strong> debe utilizarse para predecir cómo será la población en el futuro y debemos recurrir a una <strong>aproximación cualitativa teórica:</strong><br>
+<span class="math inline">\(N_{t_{1_{teorico}}} = N_{t} * exp(r_{teorico})\)</span><br>
+<span class="math inline">\(r_{teorico}= R_{o} · (1- \frac {U}{N_{t}}) · (1-\frac{N_{t}}{K})^θ)\)</span><br>
+Ro, por parametrización del modelo sabemos que es el máximo de la tasa de crecimiento per cápita observada,<br>
+U es el umbral de extinción (En nuestro ejemplo: 0.5),<br>
+K máxima capacidad de carga (En nuestro ejemplo: 97.185),<br>
+θ toma 0.8 de manera general (Sibly <em>et al.</em> 2005).</p>
+</blockquote>
+<p><strong>¿Qué le pasa a mi población?</strong> <em>Ayuda: Realiza el ejercicio en dos partes.</em></p>
+<blockquote class="blockquote">
+<ul>
+<li><ol type="1">
+<li>Crea las funciones que necesites para conocer teóricamente cómo es la población de 1963-1988.<br>
+</li>
+</ol></li>
+<li>Analiza lo que estás haciendo: no puedes conocer el tamaño poblacional teórico para 1963, por falta de datos, en cambio si lo puedes conocer para 1989.<br>
+</li>
+<li><ol start="2" type="1">
+<li>Crea un bucle que calcule los valores de tu población a futuro (1989-2026) y de su tasa de crecimiento per cápita, a partir de los últimos valores teóricos que has podido calcular con los datos.<br>
+</li>
+</ol></li>
+<li><ol start="3" type="1">
+<li>Observa el gráfico de tendencia de la población.</li>
+</ol></li>
+</ul>
+</blockquote>
+<p><strong>3B) Teoría de islas.</strong></p>
+<p>La teoría de islas de McArthur y Wilson trata de comprender cómo cambia la riqueza de especies de las islas, es decir, de qué depende que el número de especies aumente, disminuya o se mantenga estable.</p>
+<p>Para que <strong>aumente</strong> el número de especies debe producirse <strong>inmigración/colonización (I)</strong> y ello va a depender de la <strong>distancia</strong> entre la isla y el continente (<em>fuente</em>), es decir, cuanto más lejos esté una isla del continente es más complicado que puedan llegar especies nuevas. Así como de la cantidad de especies presentes en el continente que no están presentes en la isla, es decir, cuántas nuevas especies pueden llegar a la isla, y de la probabilidad de que estas especies puedan llegar (c).</p>
+<p>Para que <strong>disminuya</strong> deben producirse <strong>extinciones (E)</strong> y ello va a depender del tamaño de la isla (A; cuanto más pequeña más probable que se extingan), y de las especies que haya (S; cuantas más especies, más probable que alguna se extinga).</p>
+<p>Vamos a <strong><u>simular</u></strong> la teoría de islas. Para ello debes crear: la función de inmigración y la función de extinción. (<u>Consulta Google si no estás seguro cómo son estas funciones, hay unos factores de escalamiento para la distancia (f) y para el área (m)</u>)</p>
+<p>Supon que, inicialmente, tu isla está a 300 km del continente, su tamaño es de 200, que en ella aún no ha colonizado ninguna especie (0) y que la cantidad de especies en el continente es de 1000.</p>
+<p>Hay factores que se mantienen constantes (¿recuerdas cómo hacer que un factor sea constante en una función?):</p>
+<ul>
+<li>Factor de escalamiento para la distancia (f) = 0.01</li>
+<li>Factor de escalamiento para el área es de (m) = 0.25</li>
+<li>Probabilidad de colonización (c) = 0.1</li>
+<li>Probabilidad de extinción (q) = 0.2</li>
+</ul>
+<p><strong>¿Antes de nada, has comprobado que tiene sentido los resultados de tu función? … ¿¿¿¿Seguro???? ¿Pueden inmigrar o extinguirse especies decimalmente? No.&nbsp;Redondea los resultados a la unidad.</strong></p>
+<ol type="1">
+<li>¿Qué pasa si aumenta / disminuye la distancia? Prueba a cambiar el nº de especies, ¿qué ocurre? ¿Y si aumenta / disminuye el área de la isla? De nuevo, prueba a cambiar el nºde especies. Analiza tus resultados, ¿tiene sentido?.</li>
+<li>¿Cómo aumenta/disminuye la tasa de inmigración/extinción según aumenta la riqueza de especies en la isla? Dibújalo.</li>
+</ol>
+<blockquote class="blockquote">
+<p><strong>Ayuda:</strong><br>
+- Crea un vector <em>mi_isla</em> (llámalo como quieras!) que cambie la riqueza de especies en la isla de 100 en 100, hasta 1000. - Crea un bucle que te calcule la inmigración y la extinción de especies para cada valor del vector creado. - Haz un gráfico para la tasa de inmigración/riqueza de especies y otro para la tasa de extinción/riqueza de especies; pero haz que aparezcan simultáneamente en el plot (consulta la función <em>par</em>). Ponle: título al gráfico y a los ejes, y dibuja de distinto color la curva de cada gráfico. - Ahora haz que las dos curvas aparezcan en el mismo gráfico. Igualmente, éstas deben de ser de distinto color y el gráfico debe aparecer correctamente identificado (título y ejes) para entender correctamente la representación que estamos mostrando.</p>
+</blockquote>
+<p>pero… ¿es este caso real? Analicemos uno que si lo sea:</p>
+<ol start="3" type="1">
+<li>Mi isla está desierta en un inicio, pero según pasa el tiempo comienza a haber colonización y extinción de especies en ella: la riqueza de mi isla cambia con el tiempo, al igual que la cantidad de especies que colonizan y se extinguen.</li>
+</ol>
+<blockquote class="blockquote">
+<p>Es buena idea escribir en un papel tus ideas y pensar cómo pedirle al programa lo que quieres. Una <strong>ayuda</strong>, con los datos que hemos estado usando:</p>
+</blockquote>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Tiempo</th>
+<th style="text-align: center;">Riqueza</th>
+<th style="text-align: center;">Colonización</th>
+<th style="text-align: right;">Extinción</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">33</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2</td>
+<td style="text-align: center;">33</td>
+<td style="text-align: center;">32</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">3</td>
+<td style="text-align: center;">63</td>
+<td style="text-align: center;">31</td>
+<td style="text-align: right;">3</td>
+</tr>
+</tbody>
+</table>
+<blockquote class="blockquote">
+<p>¿Ves el patrón? Ahora dile a R cómo poder generarlo. Utiliza la estructura de bucle y las funciones que has creado.</p>
+</blockquote>
+<ul>
+<li>​¿En qué momento (tiempo) alcanza el equilibrio mi isla? ¿Cuál es el valor de la tasa de inmigración/extinción en ese momento?</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const links = [...document.querySelectorAll(
+    "#quarto-sidebar a.sidebar-link[href*='#']"
+  )]
+    .map(link => {
+      const url = new URL(link.href, window.location.href);
+
+      if (url.pathname !== window.location.pathname || !url.hash) {
+        return null;
+      }
+
+      const heading = document.getElementById(
+        decodeURIComponent(url.hash.substring(1))
+      );
+
+      return heading ? { link, heading } : null;
+    })
+    .filter(Boolean);
+
+  if (!links.length) return;
+
+  function updateActiveHeading() {
+    const position = window.scrollY + 160;
+    let current = links[0];
+
+    for (const item of links) {
+      if (item.heading.offsetTop <= position) {
+        current = item;
+      } else {
+        break;
+      }
+    }
+
+    links.forEach(item => {
+      item.link.classList.toggle(
+        "active-section",
+        item === current
+      );
+    });
+  }
+
+  window.addEventListener("scroll", updateActiveHeading, {
+    passive: true
+  });
+
+  window.addEventListener("resize", updateActiveHeading);
+  updateActiveHeading();
+});
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiado");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiado");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© 2026 Sonia Illanas - Creado con Quarto</p>
+</div>   
+    <div class="nav-footer-center">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="mailto:sonia.illanas@uclm.com">
+<p><img src="../../images/Mail.svg" width="30" height="30"></p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://github.com/robinilla">
+<p><img src="../../images/GitHub.svg" width="30" height="30"></p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://orcid.org/0000-0001-7984-1141">
+<p><img src="../../images/ORCID.svg" width="30" height="30"></p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://scholar.google.es/citations?hl=es&amp;user=ew25H7QAAAAJ&amp;view_op=list_works&amp;sortby=pubdate">
+<p><img src="../../images/GoogleScholar.svg" width="30" height="30"></p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://www.researchgate.net/profile/Sonia-Illanas?ev=hdr_xprf">
+<p><img src="../../images/ResearchGate.svg" width="30" height="30"></p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://bsky.app/profile/soniaillanas.bsky.social">
+<p><img src="../../images/bsky.svg" width="30" height="30"></p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://x.com/SoniaIllanas">
+<p><img src="../../images/Twitter.svg" width="30" height="30"></p>
+</a>
+  </li>  
+</ul>
+    </div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const languageMenu =
+    document.getElementById("languages-links-parent");
+
+  const navbar =
+    document.getElementById("navbarCollapse");
+
+  if (!languageMenu || !navbar) {
+    return;
+  }
+
+  const languageItem = languageMenu.closest(".nav-item");
+
+  if (!languageItem) {
+    return;
+  }
+
+  /*
+   * Babelquarto inserta el selector como primer elemento.
+   * Lo retiramos de esa posición y lo añadimos al final
+   * del contenido principal de la barra.
+   */
+  languageItem.parentNode.removeChild(languageItem);
+  navbar.appendChild(languageItem);
+
+  languageItem.classList.add("language-nav-item");
+});
+</script>
+<script>
+(() => {
+  function translateNavbar() {
+    const htmlLanguage =
+      (document.documentElement.lang || "").toLowerCase();
+
+    const pathParts =
+      window.location.pathname.toLowerCase().split("/");
+
+    const isEnglish =
+      htmlLanguage.startsWith("en") ||
+      pathParts.includes("en");
+
+    const labels = isEnglish
+      ? {
+          brand: "Sonia Illanas Website",
+          publications: "Publications",
+          phd: "PhD",
+          conferences: "Conferences",
+          teaching: "Teaching",
+          people: "About me",
+          footer: "Built with Quarto"
+        }
+      : {
+          brand: "Web de Sonia Illanas",
+          publications: "Publicaciones",
+          phd: "Tesis",
+          conferences: "Congresos",
+          teaching: "Recursos",
+          people: "Sobre mí",
+          footer: "Creado con Quarto"
+        };
+
+    function pageName(href) {
+      return (href || "")
+        .split("#")[0]
+        .split("?")[0]
+        .replace(/\/$/, "")
+        .split("/")
+        .pop()
+        .replace(/\.(html|qmd)$/, "");
+    }
+
+    document
+      .querySelectorAll("#quarto-header a.nav-link")
+      .forEach((link) => {
+        const page = pageName(link.getAttribute("href"));
+
+        if (labels[page]) {
+          link.textContent = labels[page];
+        }
+      });
+
+    const navbarTitle = document.querySelector(
+      "#quarto-header .navbar-title"
+    );
+
+    if (navbarTitle) {
+      navbarTitle.textContent = labels.brand;
+    }
+
+    const footerRight = document.querySelector(
+      ".nav-footer-right"
+    );
+
+    if (footerRight) {
+      footerRight.textContent = labels.footer;
+    }
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener(
+      "DOMContentLoaded",
+      translateNavbar
+    );
+  } else {
+    translateNavbar();
+  }
+})();
+</script>
+
+
+
+
+</body></html>
