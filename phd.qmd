@@ -1,0 +1,19 @@
+---
+page-layout: full
+body-classes: thesis-page
+output-dir: docs
+toc: false
+resources:
+    - files/PhD_IllanasSonia.pdf
+---
+
+```{=html}
+<div class="thesis-viewer">
+  <iframe
+    src="files/PhD_IllanasSonia.pdf#page=1&view=FitH"
+    title="Doctoral thesis by Sonia Illanas">
+  </iframe>
+</div>
+```
+
+<p style="text-align: center; font-size: 1.2rem;">Una copia impresa de este libro se encuentra en la biblioteca del IREC.</p>

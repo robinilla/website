@@ -1,0 +1,277 @@
+---
+title: "Publications"
+description: |
+  <span style="font-size: 1.5em;"> Peer-reviewed articles, articles under review, articles in preparation; Technical Reports & Outreached publications</span>
+toc: false
+page-layout: full
+body-classes: publications-page
+---
+
+<div class="publications-list">
+
+<p class="pub-year">In prep</p>
+
+<article class="pub">
+<p class="pub-citation"><span class="pub-number">13.</span> <strong class="pub-title">Large-scale modeling of wild ungulate relative abundance from a national camera trap network.</strong> <span class="pub-authors"><b>Illanas, S.</b>, Fernández-López, J., Vicente, J., Blanco-Aguiar, J. A., Sereno-Cadierno, J., Fassetta, E., Acevedo, P. y Zipkin, E. F.</span> <em class="pub-venue">In prep.</em></p>
+</article>
+
+
+<p class="pub-year">In review</p>
+
+<article class="pub">
+<p class="pub-citation"><span class="pub-number">12.</span> <strong class="pub-title">Evaluation of modeling approaches to account for hunting data idiosyncrasies across large spatial scales.</strong> <span class="pub-authors"><b>Illanas, S.</b>, Fernández-López, J., Blanco-Aguiar, J. A., Vicente, J. y Acevedo, P.</span> <em class="pub-venue">Diversity and Distributions (in review after major revision).</em></p>
+</article>
+
+
+<p class="pub-year">2026</p>
+
+<article class="pub">
+<p class="pub-citation"><span class="pub-number">11.</span> <strong class="pub-title">Data- and code-archiving in the British Ecological Society journals: present status and recommendations for future improvements.</strong> <span class="pub-authors">Cooper, N., … <b>Illanas, S.</b>, …</span> <em class="pub-venue">Methods in Ecology and Evolution 1-13, 2026.</em></p>
+<p class="pub-links">
+<a href="https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/2041-210x.70338" target="_blank" rel="noopener">Article</a>
+<a href="https://github.com/nhcooper123/reproduce-reuse-recycle" target="_blank" rel="noopener">Code</a>
+</p>
+</article>
+
+<article class="pub">
+<p class="pub-citation"><span class="pub-number">10.</span> <strong class="pub-title">Mapping wild boar density across Europe: combining spatial models and density estimates.</strong> <span class="pub-authors">Smith, G. C., Vicente, J., Croft, S., … <b>Illanas, S.</b>, … Ferroglio, E.</span> <em class="pub-venue">European Journal of Wildlife Research 72, 31, 2026.</em></p>
+<p class="pub-links">
+<a href="https://link.springer.com/article/10.1007/s10344-026-02059-x" target="_blank" rel="noopener">Article</a>
+</p>
+</article>
+
+
+<p class="pub-year">2025</p>
+
+<article class="pub">
+<p class="pub-citation"><span class="pub-number">9.</span> <strong class="pub-title">Assessment of bivariate relationships between spatial patterns: Revisiting the global and local L bivariate indices for wildlife management and conservation.</strong> <span class="pub-authors"><b>Illanas, S.</b>, Gómez-Rubio, V., Vicente, J., Acevedo, P.</span> <em class="pub-venue">Ecological Indicators 175, 113551, 2025.</em></p>
+<p class="pub-links">
+<a href="https://www.sciencedirect.com/science/article/pii/S1470160X25004819?via%3Dihub" target="_blank" rel="noopener">Article</a>
+<a href="https://github.com/robinilla/GLIndex" target="_blank" rel="noopener">Code</a>
+</p>
+</article>
+
+<article class="pub">
+<p class="pub-citation"><span class="pub-number">8.</span> <strong class="pub-title">Presence-only data for wild ungulates and red fox in Spain based on hunting yields over a 10-year period.</strong> <span class="pub-authors"><b>Illanas, S.</b>, Fernández-López, J., Vicente, J., Ruiz-Rodríguez, C., López-Padilla, S., Sebastián-Pardo, M., Preite, L., Gómez-Molina, A., Acevedo, P. y Blanco-Aguiar, J. A.</span> <em class="pub-venue">Scientific Data 12, 236, 2025.</em></p>
+<p class="pub-links">
+<a href="https://www.nature.com/articles/s41597-025-04574-z" target="_blank" rel="noopener">Article</a>
+<a href="https://ipt.gbif.es/resource?r=big_game_occurrences_13-22_irec" target="_blank" rel="noopener">Data</a>
+<a href="https://github.com/robinilla/gridPresence" target="_blank" rel="noopener">Code</a>
+</p>
+</article>
+
+<article class="pub">
+<p class="pub-citation"><span class="pub-number">7.</span> <strong class="pub-title">Game target-group: Implementing inhomogeneous Poisson point process to estimate animal abundance from harvest data.</strong> <span class="pub-authors">Fernández-López, J., Acevedo, P., <b>Illanas, S.</b>, Blanco-Aguiar, J.A., Vicente, J., Gimenez, O.</span> <em class="pub-venue">Methods in Ecology and Evolution 16, 170-182, 2025.</em></p>
+<p class="pub-links">
+<a href="https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/2041-210X.14458" target="_blank" rel="noopener">Article</a>
+<a href="https://zenodo.org/records/14023649" target="_blank" rel="noopener">Code</a>
+</p>
+</article>
+
+
+<p class="pub-year">2024</p>
+
+<article class="pub">
+<p class="pub-citation"><span class="pub-number">6.</span> <strong class="pub-title">A methodological framework to characterize the wildlife-livestock interface: the case of wild boar in mainland Spain.</strong> <span class="pub-authors">Ruiz-Rodríguez, C., Fernández-López, J., Acevedo, P., Blanco-Aguiar, J.A., Montoro, V., <b>Illanas, S.</b>, Peralbo-Moreno, A., Herráiz, C., Vicente, J.</span> <em class="pub-venue">Preventive Veterinary Medicine 230:106280, 2024.</em></p>
+<p class="pub-links">
+<a href="https://www.sciencedirect.com/science/article/pii/S0167587724001661" target="_blank" rel="noopener">Article</a>
+</p>
+</article>
+
+
+<p class="pub-year">2023</p>
+
+<article class="pub">
+<p class="pub-citation"><span class="pub-number">5.</span> <strong class="pub-title">Feral American mink (Neogale vison) continues to expand its European range. Time to harmonize population monitoring and coordinate control.</strong> <span class="pub-authors">Vada, R., <b>Illanas, S.</b>, Acevedo, P., Adriaens, T., Apollonio, M., Belova, O., Blanco-Aguiar, J.A., Csányi, S., Body, G., G. Fernández-De-Mera, I.G., Ferroglio, E., Jansen, P.A., M. Jeschke, J.M., Keuling, O., Palazón, S., Plis, K., Podgórski, T., Rickowski, F., Scandura, M., Shakun, V., Smith, G.C., Stephens, P.A., Van Den Berge, K., Veeroja, R., Zanet, S., Zihmanis, I., Vicente, J.</span> <em class="pub-venue">Mammal Review 53(3): 158:176, 2023.</em></p>
+<p class="pub-links">
+<a href="https://onlinelibrary.wiley.com/doi/10.1111/mam.12315" target="_blank" rel="noopener">Article</a>
+</p>
+</article>
+
+<article class="pub">
+<p class="pub-citation"><span class="pub-number">4.</span> <strong class="pub-title">Towards standardising the collection of game statistics in Europe: a case study.</strong> <span class="pub-authors">Ruiz-Rodríguez, C., Gómez-Molina, A., <b>Illanas S.,</b> Fernández-López, J., Acevedo, P., Vicente, J.</span> <em class="pub-venue">European Journal of Wildlife Research 69:122, 2023.</em></p>
+<p class="pub-links">
+<a href="https://link.springer.com/article/10.1007/s10344-023-01746-3" target="_blank" rel="noopener">Article</a>
+</p>
+</article>
+
+
+<p class="pub-year">2021</p>
+
+<article class="pub">
+<p class="pub-citation"><span class="pub-number">3.</span> <strong class="pub-title">Lack of detectable genetic isolation in the cyclic rodent Microtus arvalis despite large landscape fragmentation owing to transportation infrastructures.</strong> <span class="pub-authors">Domínguez, J.C., Calero-Riestra, M., Olea, P. P., Malo, J. E., Burridge, C. P., Proft, K., <b>Illanas, S.</b>, Viñuela, J., García, J. T.</span> <em class="pub-venue">Scientific Reports 11:12534, 2021.</em></p>
+<p class="pub-links">
+<a href="https://www.nature.com/articles/s41598-021-91824-w" target="_blank" rel="noopener">Article</a>
+</p>
+</article>
+
+<article class="pub">
+<p class="pub-citation"><span class="pub-number">2.</span> <strong class="pub-title">Spatial homogenization of understory plant communities under eCO2 in a mature Eucalyptus woodland.</strong> <span class="pub-authors">Ochoa-Hueso, R., Piñeiro, J., Hasegawa, S., <b>Illanas, S.</b>, Miranda, H., Reverter, M., Power, S.</span> <em class="pub-venue">Journal of Ecology 109:1386-1395, 2021.</em></p>
+<p class="pub-links">
+<a href="https://besjournals.onlinelibrary.wiley.com/doi/10.1111/1365-2745.13564" target="_blank" rel="noopener">Article</a>
+<a href="https://doi.org/10.6084/m9.figshare.5835216.v3" target="_blank" rel="noopener">Data</a>
+</p>
+</article>
+
+
+<p class="pub-year">2018</p>
+
+<article class="pub">
+<p class="pub-citation"><span class="pub-number">1.</span> <strong class="pub-title">New distribution data of the least weasel Mustela nivalis in Castilla y León, Spain.</strong> <span class="pub-authors">Domínguez, J.C., Díaz-Ruiz, F., Viñuela, J., De Diego, N., <b>Illanas S.,</b> Olea, P.P., Santamaría, A.E., Oñate, J.J., Herranz, J., Acebes, P., Ferreras, P., Malo, J.E., Piñeiro, X., Paz, A., Cuéllar, C., Mateo-Tomás, P., Barja, I., Jareño, D., Piñeiro, A., García, J.T.</span> <em class="pub-venue">Galemys 30:66-70, 2018.</em></p>
+<p class="pub-links">
+<a href="https://secem.es/galemys/galemys-30-2018-n3/" target="_blank" rel="noopener">Article</a>
+</p>
+</article>
+
+</div>
+
+
+
+
+## Technical Reports
+
+<div class="publications-list">
+
+<p class="pub-year">2025</p>
+
+<article class="pub">
+<p class="pub-citation"><span class="pub-number">11.</span> <strong class="pub-title">Impacts on biodiversity by the large wildfires in the Cantabrian Range. </strong> <span class="pub-authors">Alfaro-Saiz E., Acedo C., Cano-Alonso L.S., Fernández-Gil, A., López-Fernández, J., de Gabriel-Hernando, M., <b>Illanas, S.</b>, Naves, J., Ordóñez-Gavela, S., Quevedo, M., Tellería, J.L.</span> <em class="pub-venue">Authorea Preprint, 2025.</em></p>
+<p class="pub-links">
+<a href="https://www.authorea.com/doi/full/10.22541/au.176463341.10954351/v2" target="_blank" rel="noopener">Report</a>
+</p>
+</article>
+
+
+<p class="pub-year">2024</p>
+
+<article class="pub">
+<p class="pub-citation"><span class="pub-number">10.</span> <strong class="pub-title">Modelling Wild Boar abundance at high resolution.</strong> <span class="pub-authors">ENETWILD-consortium, Croft, S., Blanco-Aguiar, J.A., Acevedo, P., <b>Illanas, S.</b>, Vicente, J., Warren, D. A., Smith, G.C.</span> <em class="pub-venue">EFSA Supporting Publications, 2024.</em></p>
+<p class="pub-links">
+<a href="https://efsa.onlinelibrary.wiley.com/doi/abs/10.2903/sp.efsa.2024.EN-8965" target="_blank" rel="noopener">Report</a>
+</p>
+</article>
+
+
+<p class="pub-year">2023</p>
+
+<article class="pub">
+<p class="pub-citation"><span class="pub-number">9.</span> <strong class="pub-title">Wild carnivore occurrence and models of hunting yield abundance at European scale: first models for red fox and badger.</strong> <span class="pub-authors">ENETWILD-consortium, <b>Illanas, S.</b>, Croft, S., Smith, G.S., Vicente, J., Blanco-Aguiar, J.A., Scandura, M., Apollonio, M., Ferroglio, E., Keuling, O., Plis, K., Csányi, S., Gómez-Molina, A., Preite, L., Ruiz-Rodríguez, C., López-Padilla, S., Zanet, S., Vada, R., Podgorski, T., Brivio, F., Fernández-López, J., Soriguer, R.C., Acevedo, P.</span> <em class="pub-venue">EFSA Supporting Publications, 2023.</em></p>
+<p class="pub-links">
+<a href="https://www.efsa.europa.eu/en/supporting/pub/en-7894" target="_blank" rel="noopener">Report</a>
+</p>
+</article>
+
+<article class="pub">
+<p class="pub-citation"><span class="pub-number">8.</span> <strong class="pub-title">Wild ungulate density data generated by camera trapping in 37 European areas: first output of the European Observatory of Wildlife (EOW).</strong> <span class="pub-authors">ENETWILD-consortium, Guerrasio, T., Acevedo, P., Aleksovski, V., Apollonio, M., Arnon, A., Barroqueiro, C., Belova, O., Berdión, O., Blanco-Aguiar, J.A., Bijl, H., Bleier, N., Bučko, J., Bužan, E., Carniato, D., Carro, F., Casaer, J., Carvalho, J., Csányi, S., del Río, L., Del Val Aliaga, H., Ertürk, A., Escribano, F., Duniš, L., Fernández-López, J., Ferroglio, E., Fonseca, C., Gačić, D., Gavashelishvili, A., Giannakopoulos, A., Gómez-Molina, A., Gómez-Peris, C., Gruychev, G., Gutiérrez, I., Häberlein, V., Hasan, S.M., Hillström, L., Hoxha, B., Iranzo, M., Janječić, M., Jansen, P., <b>Illanas, S.</b>, Kashyap, B., Keuling, O., Laguna, E., Lefranc, H., Licoppe, A., Liefting, Y., Martínez-Carrasco, C., Mrđenović, D., Nezaj, M., Pardavila, X., Palencia, P., Pereira, G., Pereira, P., Pinto, N., Plhal, R., Plis, K., Podgórski, T., Pokorny, B., Preite, L., Radonjic, M., Rowcliffe, M., Ruiz-Rodríguez, C., Santos, J., Rodríguez, O., Scandura, M., Sebastián-Pardo, M., Sereno-Cadierno, J., Šestovic, B., Shyti, I., Somoza, E., Soriguer, R.C., Solà de la Torre, J., Soyumert, A., Šprem, N., Stoyanov, S., Smith, G.C., Sulce, M., Torres, R.T., Trajçe, A., Urbaitis, G., Urbani, N., Uguzashvili, T., Vada, R., Zanet, S., Vicente, J.</span> <em class="pub-venue">EFSA Supporting Publications, 2023.</em></p>
+<p class="pub-links">
+<a href="https://www.efsa.europa.eu/en/supporting/pub/en-7892" target="_blank" rel="noopener">Report</a>
+</p>
+</article>
+
+
+<p class="pub-year">2022</p>
+
+<article class="pub">
+<p class="pub-citation"><span class="pub-number">7.</span> <strong class="pub-title">Development of an app for processing data on wildlife density in the field.</strong> <span class="pub-authors">ENETWILD-consortium, Blanco-Aguiar, J.A., Acevedo, P., Apollonio, M., Carniato, D., Casaer, J., Ferroglio, E., Guerrasio T, Gómez-Molina A, Jansen P, <b>Illanas, S.</b>, Laguna E., Liefting Y, Keuling, O., Palencia P, Preite L, Plis K, Podgórski T, Rowcliffe M, Ruiz-Rodríguez, C., Sebastián-Pardo, M., Smith, G.C., Scandura, M., Sereno-Cadierno, J., Soriguer R, Vada R, Zanet S, Vicente, J.</span> <em class="pub-venue">EFSA Supporting Publications, 2022.</em></p>
+<p class="pub-links">
+<a href="https://efsa.onlinelibrary.wiley.com/doi/pdf/10.2903/sp.efsa.2022.EN-7709" target="_blank" rel="noopener">Report</a>
+</p>
+</article>
+
+<article class="pub">
+<p class="pub-citation"><span class="pub-number">6.</span> <strong class="pub-title">New models for wild ungulates occurrence and hunting yield abundance at European scale.</strong> <span class="pub-authors">ENETWILD-consortium, <b>Illanas, S.</b>, Croft, S., Smith G. C., López-Padilla, S., Vicente, J., Blanco-Aguiar, J.A., Scandura, M., Apollonio, M., Ferroglio, E., Zanet, S., Vada, R., Keuling, O., Plis, K., Podgorski, T., Brivio, F., Fernández-López, J., Ruiz-Rodríguez, C., Soriguer, R.C., Acevedo, P.</span> <em class="pub-venue">EFSA Supporting Publications, 2022.</em></p>
+<p class="pub-links">
+<a href="https://efsa.onlinelibrary.wiley.com/doi/abs/10.2903/sp.efsa.2022.EN-7631" target="_blank" rel="noopener">Report</a>
+</p>
+</article>
+
+<article class="pub">
+<p class="pub-citation"><span class="pub-number">5.</span> <strong class="pub-title">Update of model for wild ruminant abundance based on occurrence and first models based on hunting yield at European scale.</strong> <span class="pub-authors">ENETWILD-consortium, <b>Illanas, S.</b>, Croft, S., Acevedo, P., Fernández-López, J., Vicente, J., Blanco-Aguiar, J.A., Pascual-Rico, R., Scandura, M., Apollonio, M., Ferroglio, E., Keuling, O., Zanet, S., Podgorski, T., Plis, K., Brivio, F., Ruiz-Rodríguez, C., Soriguer, R.C., Vada, R., Smith, G.C.</span> <em class="pub-venue">EFSA Supporting Publications, 2022.</em></p>
+<p class="pub-links">
+<a href="https://efsa.onlinelibrary.wiley.com/doi/abs/10.2903/sp.efsa.2022.EN-7174" target="_blank" rel="noopener">Report</a>
+</p>
+</article>
+
+
+<p class="pub-year">2021</p>
+
+<article class="pub">
+<p class="pub-citation"><span class="pub-number">4.</span> <strong class="pub-title">Report of the 2nd Annual General Meeting of ENETWILD (5-6 October 2021).</strong> <span class="pub-authors">ENETWILD-consortium, Pascual, R., Acevedo, P., Apollonio, M., Blanco-Aguiar, J.A., Body, G., Casaer, J., Ferroglio, E., Gómez-Molina, A., <b>Illanas, S.</b>, Jansen, P., Keuling, O., Palencia, P., Plis, K., Podgórski, T., Ruiz-Rodríguez, C., Scandura, M., Smith, G.C., Vada, R., Zanet, S., Vicente, J.</span> <em class="pub-venue">EFSA Supporting Publications, 2021.</em></p>
+<p class="pub-links">
+<a href="https://efsa.onlinelibrary.wiley.com/doi/abs/10.2903/sp.efsa.2021.EN-7053" target="_blank" rel="noopener">Report</a>
+</p>
+</article>
+
+<article class="pub">
+<p class="pub-citation"><span class="pub-number">3.</span> <strong class="pub-title">Analysis of wild ungulate‐livestock interface in Europe: preliminary results.</strong> <span class="pub-authors">ENETWILD-consortium, <b>Illanas, S.</b>, Acevedo, P., Apollonio, M., Blanco-Aguiar, J.A., Brivio, F., Croft, S., Cretois, B., Fernández-López, J., Ferroglio, E., Keuling, O., Linnell, J.D.C., Plis, K., Podgórski, T., Scandura, M., Smith, G.C., Soriguer, R.C., Vada, R., Zanet, S., Vicente, J.</span> <em class="pub-venue">EFSA Supporting Publications, 2021.</em></p>
+<p class="pub-links">
+<a href="https://www.efsa.europa.eu/en/supporting/pub/en-7038" target="_blank" rel="noopener">Report</a>
+</p>
+</article>
+
+<article class="pub">
+<p class="pub-citation"><span class="pub-number">2.</span> <strong class="pub-title">Update of hunting yield-based data model for wild boar and first models based on occurrence for wild ruminants at European scale.</strong> <span class="pub-authors">ENETWILD-consortium, <b>Illanas, S.</b>, Croft, S., Smith, G.C., Fernández-López, J., Vicente, J., Blanco-Aguiar, J.A., Pascual-Rico, R., Scandura, M., Apollonio, M., Ferroglio, E., Keuling, O., Zanet, S., Brivio, F., Podgorski, T., Plis, K., Soriguer, R.C., Acevedo, P.</span> <em class="pub-venue">EFSA Supporting Publications, 2021.</em></p>
+<p class="pub-links">
+<a href="https://www.efsa.europa.eu/en/supporting/pub/en-6825" target="_blank" rel="noopener">Report</a>
+</p>
+</article>
+
+<article class="pub">
+<p class="pub-citation"><span class="pub-number">1.</span> <strong class="pub-title">Analysis of wild boar‐domestic pig interface in Europe: spatial overlapping and fine resolution approach in several countries.</strong> <span class="pub-authors">ENETWILD-consortium, <b>Illanas, S.</b>, Fernández-López, J., Acevedo, P., Apollonio, M., Blanco-Aguiar, J.A., Brivio, F., Croft, S., Ferroglio, E., Keuling, O., Plis, K., Podgórski, T., Scandura, M., Smith, G.C., Soriguer, R.C., Šprem, N., Zanet S., Vicente, J.</span> <em class="pub-venue">EFSA Supporting Publications, 2021.</em></p>
+<p class="pub-links">
+<a href="https://www.efsa.europa.eu/en/supporting/pub/en-1995" target="_blank" rel="noopener">Report</a>
+</p>
+</article>
+
+</div>
+
+
+## Outreach Publications
+
+<div class="publications-list">
+
+<p class="pub-year">2025</p>
+
+<article class="pub">
+<p class="pub-citation"><span class="pub-number">5.</span> <strong class="pub-title">Artificial warrens as a management tool to promote rabbit populations. In: The wild rabbit in Castilla-La Mancha (pp. 228–239).</strong> <span class="pub-authors">Espinosa, S., <b>Illanas, S.</b>, Álvarez, A., Moreno, A., & Pérez de Ayala, R.</span> <em class="pub-venue">Regional Ministry of Sustainable Development, Government of Castilla-La Mancha, 2025.</em></p>
+<p class="pub-links">
+<a href="https://cazaypesca.castillalamancha.es/sites/default/files/2026-02/LIBRO_conejo_en-Castilla-La_Mancha_web.pdf" target="_blank" rel="noopener">Chapter Book</a>
+</p>
+</article>
+
+<p class="pub-year">2021</p>
+
+<article class="pub">
+<p class="pub-citation"><span class="pub-number">4.</span> <strong class="pub-title">iMammalia App </strong> <span class="pub-authors"> <b>Illanas, S.</b>, Arredondo, Á., Blanco-Aguiar, J.A., Acevedo, P., Vicente, J. </span> <em class="pub-venue">Streamlite, 2021.</em></p>
+<p class="pub-links">
+<a href="https://robinilla-imammaliaapp-app-uhvb9k.streamlit.app/ " target="_blank" rel="noopener">App</a>
+</p> </article>
+
+<article class="pub">
+<p class="pub-citation"><span class="pub-number">3.</span> <strong class="pub-title"> A practical guidance on estimation of European wild ungulate population density. A selection of reliable practical methods for harmonized population monitoring in Europe.</strong> <span class="pub-authors"> ENETWILD-consortium, Acevedo, P., Apollonio, M., Bevilacqua, C., Blanco-Aguiar, J.A., Brivio, F., Casaer, J., Ferroglio, E., Grignolio, S., Jansen, P., <b>Illanas, S.</b>, Kavčić, K., Keuling, O., Palencia, P., Plis, K., Podgórski, T., Rowcliffe, M., Ruiz-Rodríguez, C., Smith, G.C., Scandura, M., Soriguer, R.C., Šprem, N., Vada, R., Zanet, S., Vicente, J. </span> <em class="pub-venue">European Food Safety Authority, 2021.</em></p>
+<p class="pub-links">
+<a href="https://wildlifeobservatory.org/wp-content/uploads/2022/02/IREC-DOC-2022-final.pdf" target="_blank" rel="noopener">Book</a>
+</p>
+</article>
+
+<p class="pub-year">2019</p>
+
+<article class="pub">
+<p class="pub-citation"><span class="pub-number">2.</span> <strong class="pub-title">Habitat selection and landscape permeability for the Iberian lynx (Lynx pardinus) in Andalucía.</strong> <span class="pub-authors"><b>Illanas, S.</b>, Ciudad, C., Gastón, A., Blázquez-Cabrera, S., Simón, M. A., Saura, S.</span> <em class="pub-venue">Foresta 73:60-67, 2019.</em></p>
+<p class="pub-links">
+<a href="https://www.forestales.net/revistas/articulos/seleccion-del-habitat-y-permeabilidad-del-territorio-para-el-lince-iberico-lynx-pardinus-en-andalucia/360" target="_blank" rel="noopener">Article</a>
+</p>
+</article>
+
+
+<p class="pub-year">2017</p>
+
+<article class="pub">
+<p class="pub-citation"><span class="pub-number">1.</span> <strong class="pub-title">Habitat selection and landscape permeability for the Iberian lynx (Lynx pardinus) in Andalucía: influence of behavioral state and cartographic resolution.</strong> <span class="pub-authors"><b>Illanas, S.</b>, Ciudad, C., Gastón, A., Blázquez-Cabrera, S., Simón, M. A., Saura, S.</span> <em class="pub-venue">Cuadernos de la Sociedad Española de Ciencias Forestales 43:193-208, 2017.</em></p>
+
+<p class="pub-links">
+<a href="https://doi.org/10.31167/csef.v0i43.17537" target="_blank" rel="noopener">Article</a>
+</p>
+</article>
+
+</div>

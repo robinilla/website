@@ -1,0 +1,52 @@
+---
+title: "Participation in Conferences"
+description: "."
+toc: false
+page-layout: full
+body-classes: conferences-page
+resources:
+    - files/**
+---
+
+## Conference Presentations
+::: {.fs-1.1}
+|Year     |Communication                                                                                  |City                                | Conference               |
+| -- |----------------------------------------------------------------------------------------------------------------------- |---------------------|--------------------------------------------------- |
+|2025|[Evaluating harvest statistics modeling approaches to estimate large-scale relative abundance patterns.](files/202512_SECEM_IllanasSonia.pdf){target="_blank"}(Spanish) <b>Oral communication</b>|Évora, Portugal|[XVII SECEM Conference](https://secem.es/congresos/xvii-congreso-internacional-de-la-secem)|
+|2025|[Occupancy modeling for wild ungulates from camera traps at National scale.](files/202506_TSF.3-O-6_IllanasSonia.pdf){target="_blank"} (English) <b>Oral communication</b>|Pontevedra, Spain|[III SIBECOL & XVII AEET Meeting.](https://sibecol-aeet-meeting2025.org/Index/34/Scientific-sessions)|
+|2025|[Data papers as a valuable reporting tool to improve the management and conservation of vertebrate populations in Europe.](files/202505_EVMC_IllanasSonia.pdf){target="_blank"} (English) <b>Oral communication</b>|Ankaran, Slovenia|[EVMC](https://www.evmc.online/)|
+|2024|[Using Spatially Varying Coefficientes (SVC) for game species abundance models' at large scale](https://github.com/robinilla/Conferences/tree/main/202407_ISEC). (English) <b>Poster</b>|Swansea, Wales|[ISEC](https://statisticalecology.org/)|
+|2024|[Application of spatially varying coefficients for modeling ungulates abundance at large scales.](files/202403_RGTFauna2_SECF_IllanasS.pdf){target="_blank"} (Spanish) <b>Poster</b> | Madrid, Spain | [II Meeting for Wildlife Management and Conservation (SECF)](https://secforestales.org/sites/default/files/archivos/libro_resumenes_gtfauna_secf_2024_0.pdf)|
+|2023|[Exploring the utility of the bivariate L index for analyzing spatial relationships.](files/202312_C6_SECEM23_Illanas_et_al.pdf){target="_blank"} (Spanish) <b>Oral communication</b>|Granollers, Spain| [XVI SECEM Conference](https://secem.es/congresos/xvi-congreso-internacional-de-la-secem)|
+|2023|[Does size matter? What is the most suitable size for artificial warrens?](files/202302_LIFEIberconejo_IllanasS.pdf){target="_blank"} (Spanish) <b>Invited Talk</b> | Trujillo, Spain | Life+ Iberconejo |
+|2022|[Ecological connectivity as a tool for predicting African Swine Fever spread: the Italian outbreak as case of study.](files/202209_IWBS_IllanasS.pdf){target="_blank"} (English) <b>Oral communication</b>|Seva, Spain| 13th International Symposium on Wild Boar and other Suids |
+|2022|[Expectation vs. reality: does spatial modeling require field work at continental scale?](files/202204_SimposioUCM_IllanasS.pdf){target="_blank"} (Spanish) <b>Invited Talk</b> | Madrid, Spain | IX Simposio de Novedades en Investigación Zoológica - UCM |
+|2021|Relationship between habitat favorability using BART and abundance of European rabbit (Oryctolagus cuniculus) at Iberian lynx (Lynx pardinus) populations. (English) <b>Invited Talk</b>| UK, Online | National Centre for Statistical Ecology - NCSE|
+|2021|[Analysis of the relationship between habitat favorability and abundance (IKAs) of European rabbit (Oryctolagus cuniculus) in the Iberian lynx (Lynx pardinus) populations.](files/202112_SECEM_Illanas_et_al.pdf){target="_blank"} (Spanish) <b>Oral communication</b>|Córdoba, Spain | [XV SECEM  Conference](https://secem.es/congresos/xv-congreso-de-la-secem) |
+|2021|[Different approaches to model the distribution of wild ungulates density in Europe.](files/202110_RUSI_IllanasS.pdf){target="_blank"}  <b>Oral communication</b>|Vila Real, Portugal| [RUSI]() |
+|2021|[Modelling wild boar population density in Europe for wildlife disease control.](files/202108_WDA_IllanasS.pdf){target="_blank"} (English) <b>Poster</b>| Spain, Online | EWDA |
+|2019|[Potential available habitat to achieve Favorable Conservation Status (FCS). The case of the Iberian Lynx (Lynx pardinus).](files/201912_SECEM_IllanasS.pdf){target="_blank"} (Spanish) <b>Oral communication</b> |Jaca, Spain |[XIV SECEM  Conference](https://secem.es/congresos/xiv-congreso-de-la-secem)|
+|2019|[Potential suitable habitat in the Iberian Peninsula and Natura 2000 network for Favorable Conservation Status (FCS) of the Iberian lynx.](files/201909_JornadaTecnica_FCS_IllanasS.pdf){target="_blank"} (English) <b>Invited conference<b>| Madrid, Spain | [WWF-Spain Technical Conference: The Iberian Lynx, looking ahead](https://www.wwf.es/?52400/Conclusiones-de-las-Jornadas-El-lince-iberico-mirando-hacia-el-futuro) |
+|2017|[Influencia del estado de comportamiento y la resolución cartógráfica en los análisis de selección del hábitat y permeabilidad del territorio: el caso del lince ibérico (Lynx pardinus) en Andalucía.](files/201712_SECEM_Illanas_et_al.pdf){target="_blank"} (Spanish)  <b>Oral communication</b>|Guadalajara, Spain |[XIII SECEM  Conference](https://secem.es/congresos/xiii-congreso-de-la-secem)|
+:::
+
+## Other coauthored contributions
+::: {.fs-1.1}
+|Year     |Communication                                                                                  |City                                | Conference               |
+| -- |----------------------------------------------------------------------------------------------------------------------- |---------------------|--------------------------------------------------- |
+|2025|Un marco armonizado y colaborativo para la monitorización y estudio de mamíferos a escala europea: ejemplos en la Península Ibérica. <b>Oral communication</b> | Évora, Portugal |[XVII SECEM Conference](https://secem.es/congresos/xvii-congreso-internacional-de-la-secem)|
+|2025|Análisis comparativo de la evolución del discurso mediático sobre la gestión de colonias felinas urbanas en España. <b>Poster</b>.| Évora, Portugal |[XVII SECEM Conference](https://secem.es/congresos/xvii-congreso-internacional-de-la-secem)|
+|2025|Land use transformations as drivers of wildlife population trends in mainland Spain. <b>Poster</b>|Pontevedra, Spain|[III SIBECOL & XVII AEET Meeting.](https://sibecol-aeet-meeting2025.org/Index/34/Scientific-sessions)|
+|2025|Spotting the big predator: exploring the spatial and temporal trends of hunters in Spain. <b>Poster</b>|Pontevedra, Spain|[III SIBECOL & XVII AEET Meeting.](https://sibecol-aeet-meeting2025.org/Index/34/Scientific-sessions)|
+|2024|Del pergamino al bit: digitalizando la recogida de datos en la monitorización de la fauna. <b>Oral communication</b> | Mértola, Portugal | II Congreso Ibérico de Ciencia Aplicada a los Recursos Cinegéticos (CICARC)|
+|2023|Abundance estimates combining different data sources: the case of the European rabbit. <b>Oral communication</b>|Granollers, Spain| [XVI SECEM Conference](https://secem.es/congresos/xvi-congreso-internacional-de-la-secem)|
+|2023|A unified framework for estimating animal abundance from hunting statistics: the thinned Poisson point process model. <b>Oral communication</b>| Montpellier, France | EURING 2023 Analytical Meeting & Workshop|
+|2022|Integrating hunting yield data at different resolutions for wild boar abundance modelling. <b>Oral communication</b>|Seva, Spain| 13th International Symposium on Wild Boar and other Suids |
+|2022|The European Observatory of Wildlife (EOW): a collaborative network of observation points triggered by the need of monitoring wild boar at European scale. <b>Oral communication</b>|Seva, Spain| 13th International Symposium on Wild Boar and other Suids |
+|2021|Analysis of the effectiveness of vivars for the improvement of rabbit populations (Oryctolagus cuniculus). <b>Oral communication</b>|Córdoba, Spain | [XV SECEM  Conference](https://secem.es/congresos/xv-congreso-de-la-secem) |
+|2021|The European Wildlife Observatory (EOW): an available tool for harmonized wild mammals monitoring in Europe. <b>Oral communication</b>|Córdoba, Spain | [XV SECEM  Conference](https://secem.es/congresos/xv-congreso-de-la-secem) |
+|2019|Favorable Conservation Status for the Iberian lynx. <b>Oral communication</b>|Jaca, Spain |[XIV SECEM  Conference](https://secem.es/congresos/xiv-congreso-de-la-secem)|
+|2019|Wildbook for iberian Lynx: Iberian Lynx individual identification platform. <b>Oral communication</b>|Jaca, Spain |[XIV SECEM  Conference](https://secem.es/congresos/xiv-congreso-de-la-secem)|
+|2019|Model the landscape to connect Iberian lynx populations. <b>Invited conference</b> | Sevilla, Spain | Seminario de Conservación del Lince Ibérico. LIFE+ Iberlince|
+|2017|New distribution data of the weasel Mustela nivalis in the North of Castilla y León. <b>Poster</b>|Guadalajara, Spain |[XIII SECEM  Conference](https://secem.es/congresos/xiii-congreso-de-la-secem)| 
+:::

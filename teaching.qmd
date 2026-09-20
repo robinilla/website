@@ -1,0 +1,67 @@
+---
+title: ""
+page-layout: full
+body-classes: teaching-page
+format:
+  html:
+    toc: true
+    toc-location: right
+    toc-depth: 2
+    toc-title: " "
+
+    grid:
+      body-width: 1300px
+      margin-width: 280px
+      gutter-width: 2rem
+---
+
+## Docencia
+
+### Universidad de Castilla-La Mancha
+
+- **Máster Universitario en Investigación Básica y Aplicada en Fauna Silvestre (MUIBAF).**  
+  **Curso:** 2026/2027.  
+  **Asignatura:**  Bases Conceptuales de la Investigación y Gestión en Fauna Silvestre. Tema: [Estadística básica en ciencias experimentales.](resources/MUIBAF/index.qmd)
+
+## Colaboración docentes
+
+### Universidad de Castilla-La Mancha
+- **Máster Universitario en Investigación Básica y Aplicada en Fauna Silvestre (MUIBAF).**  
+  **Curso:** 2025/2026.  
+  **Asignaturas:**
+    - Cartografía y Sistemas de Información Geográfica: Aplicaciones en Ecología, Epidemiología y Gestión.
+    - Monitorización Integrada: Herramientas para Estimar el Tamaño Poblacional.  
+
+- **Máster Universitario en Investigación Básica y Aplicada en Recursos Cinegéticos (MUIBARC).**  
+  **Cursos:** 2021/2022, 2022/2023, 2023/2024, 2024/2025.  
+  **Asignaturas:**
+    - Curso Avanzado de SIG: Aplicaciones en Ecología, Epidemiología y Gestión.
+    - Análisis Avanzado de Datos en Bioestadística y Epidemiología.
+
+- **Grado en Historia / Grado en Historia del Arte / Doble Grado en Historia e Historia del Arte / Doble Grado en Historia + Geografía, Desarrollo Territorial y Sostenibilidad.**  
+  **Curso:** 2022/2023.  
+  **Asignatura:** Geografía Física y Humana.
+
+
+## Recursos de aprendizaje desarrollados
+- **App:** [Spatial Abundance Explorer](spatial-abundance-explorer.qmd).Simulating abundance data with spatial autocorrelation.  
+  Published in Connect Cloud 2026 - Developed in 2024.  
+  English.  
+
+
+## Cursos y talleres
+
+- **Workshop:** [Introduction to Bayesian Inference in Ecology](https://jabiologo.github.io/web/tutorials/IBER_aeet.html) - English.  
+*III meeting of the Iberian Ecological Society (SIBECOL) / XVII National Conference of the Spanish Association of Terrestrial Ecology (AEET).*  
+Pontevedra, Spain.
+June 2, 2025.
+
+- **Curso** avanzado de Sistemas de Información Geográfica: aplicaciones en ecología y epidemiología.  - Español.
+*Programa de Formación Específica, Plan de Formación para el Personal de la Administración de la Junta de Comunidades de Castilla-La Mancha.*  
+Toledo, Spain.
+July, 2022.
+
+- **Curso:** [Intro-R](https://github.com/arredond/intro-R) - Español.  
+Universidad Politécnica de Madrid.  
+Madrid, Spain. 
+February, 2018

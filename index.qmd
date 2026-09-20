@@ -1,0 +1,81 @@
+---
+title: "Patrones y Procesos de Ocupación y Abundancia de Fauna Silvestre"
+subtitle: "Ecología Cuantitativa"
+description: " "
+page-layout: full
+toc: false
+body-classes: home
+title-block-banner: images/zakopane5.png
+title-block-banner-color: white
+---
+
+<!--
+## Áreas de trabajo
+
+:::: {.columns}
+
+::: {.column width="33%"}
+
+### Ocupación y abundancia
+
+Desarrollo y aplicación de modelos que consideran la detectabilidad imperfecta y permiten estimar la distribución y abundancia de las especies.
+
+:::
+
+::: {.column width="33%"}
+
+### Ecología cuantitativa
+
+Aplicación de métodos estadísticos para comprender patrones ecológicos y procesos que no pueden observarse directamente.
+
+:::
+
+::: {.column width="33%"}
+
+### Ciencia reproducible
+
+Análisis, documentación y herramientas desarrolladas principalmente con R, Quarto y control de versiones.
+
+:::
+
+::::
+
+---
+-->
+
+## Novedades
+
+:::: {.home-news-single}
+
+::: {.home-news-image}
+![](images/PhD_SoniaIllanas.jpg){
+  .home-news-photo
+  fig-alt="Sonia Illanas antes de la defensa de su tesis doctoral."
+}
+:::
+
+::: {.home-news-text}
+
+<strong> <p style="font-size: 1.8rem;">¡Defensa de tesis doctoral!</p></strong>
+
+Estoy muy feliz de haber conseguido este paso. No habría sido posible sin mis directores, todo el apoyo que he recibido de mi familia y amigos a lo largo de estos años y los miembros de mi tribunal, a quienes agradezco que hayan hecho el esfuerzo de estar presentes en un día tan importante para mí.
+
+<b>¡MUCHÍSIMAS GRACIAS A TODOS!</b>
+
+<p style="font-size: 1.8rem; line-height: 1.25">[Enlace a mi tesis doctoral](phd.qmd){.btn .home-publication-button}</p>
+<p style="font-size: 1.8rem; line-height: 1.25"> [Scripts a los análisis estadísticos](https://github.com/robinilla/PhD_thesis){.btn .home-publication-button}</p>
+
+:::
+
+::::
+
+
+
+## ¿Qué encontrarás en esta web?
+- Mis publicaciones científicas y otras publicaciones técnicas.
+- Mi tesis doctoral.
+- Congresos en los que he participado.
+- Mis intereses y mi trayectoria académica y profesional. 
+<!--- Mis líneas y proyectos de investigación (WIP).-->
+<!---- Tutoriales y ejemplos reproducibles (WIP).-->
+<!---- Aplicaciones interactivas desarrolladas con R y Shiny.-->

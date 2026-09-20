@@ -1,0 +1,59 @@
+---
+title : ""
+page-layout: full
+toc: false
+body-classes: people-page
+---
+
+:::: {.people-profile}
+
+::: {.people-photo}
+
+![](images/sonia2.jpg){
+  .people-portrait
+  fig-alt="Retrato de Sonia Illanas"
+}
+
+:::
+
+::: {.people-summary}
+
+## Sonia Illanas
+
+Mi trabajo se centra en el análisis de datos ecológicos para la inferencia de patrones de distribución y abundancia de la fauna silvestre a gran escala. Particularmente estoy interesada en cómo distintas decisiones analíticas afectan a las inferencias que realizamos y en el desarrollo e implementacion de métodos cuantitativos que mejoren la fiabilidad de las estimas para la monitorización de la biodiversidad. Utilizo principalmente **R** para la realización de estos análisis y la generación de código reproducible que pueda ser útil para otros usuarios.
+
+- **Doctorado en Ciencias Agrarias y Ambientales**. Universidad de Castilla-La Mancha (UCLM). 2021-2026. 
+- **Máster en Ecología**. Universidad Autónoma de Madrid y Universidad Complutense de Madrid (UAM-UCM). 2016-2018.
+- **Grado en Ingeniería del Medio Natural**. Universidad Politécnica de Madrid (UPM). 2011-2016.
+
+::: {.people-links}
+
+[e-mail](mailto:sonia.illanas@uclm.com) · 
+[GitHub](https://github.com/robinilla) · 
+[Google Scholar](https://scholar.google.com/citations?user=ew25H7QAAAAJ&hl=es) · 
+[Researchgate](https://www.researchgate.net/profile/Sonia-Illanas?ev=hdr_xprf)
+
+:::
+
+:::
+
+::::
+
+## Experiencias Profesionales y Académicas
+
+- Cuando acabé el grado en Ingeniería del Medio Natural trabajé unos meses en la Universidad Politécnica de Madrid (UPM) bajo la dirección de [Prof. Santiago Saura](https://scholar.google.com/citations?user=kOLDlZUAAAAJ&hl=en#d=gsc_md_hist&t=1784720512838) and [Dr. Carlos Ciudad](https://scholar.google.com/citations?hl=en&user=SNNgtAQAAAAJ&view_op=list_works&sortby=pubdate) en el proyecto GEFOUR, relacionado con el uso de modelos de distribución de especies (SDMs) para el oso pardo cantábrico. 
+- Mientras realizaba el Máster en Ecología tuve la oportunidad de realizar unas prácticas en [WWF-España](https://www.wwf.es/), tras las cuales estuve trabajando con ellos en varios proyectos relacionados con el estado de conservación favorable del [lince ibérico](https://www.wwf.es/?52400/Conclusiones-de-las-Jornadas-El-lince-iberico-mirando-hacia-el-futuro), y el [conejo de monte](https://www.wwf.es/nuestro_trabajo/especies_y_habitats/conejo/?47980/Conservacionistas-agricultores-e-instituciones-se-alan-para-prevenir-los-daos-del-conejo-en-los-cultivos).
+- Durante un año estuve trabajando en [INECO](https://www.ineco.com/ineco/proyectos/alta-velocidad-hs2) en temas relacionados con el manejo de BBDD de animales silvestres y la visualización de la información para la evaluación del impacto ambiental del proyecto [High Speed 2](https://www.hs2.org.uk/).
+
+- Acabo de finalizar mi <b>tesis doctoral</b> en el [IREC, CSIC-UCLM-JCCM](https://www.irec.es/), bajo el programa de ciencias Agrarias y Ambientales de la universidad de Castilla-La Mancha (UCLM).  Mi tesis doctoral ha sido financiada por el Ministerio de Ciencia e Innovación bajo un contrato FPI, y dirigida por [Dr. Pelayo Acevedo](https://scholar.google.com/citations?hl=en&user=vecKO2QAAAAJ&view_op=list_works&sortby=pubdate) y [Prof. Joaquín Vicente](https://scholar.google.com/citations?hl=en&user=LKuXcdsAAAAJ). En mi tesis doctoral he utilizado estadísticos cinegéticos y cámaras de fototrampeo para estudiar la distribución y abundancia de los mamíferos silvestres a lo largo de España y Europa. A través del [proyecto ENETWILD](www.enetwild.com), he colaborado con socios del ámbito académico, gubernamental y de la gestión de fauna silvestre para recopilar y armonizar información sobre fauna silvestre de diversos países de Europa.
+
+
+## ¿Y en el tiempo libre?
+
+Me encanta nadar, aunque disfruto con cualquier deporte. Tras un largo paréntesis retomé mi pasión por el agua y ha sido la mejor decisión que he tomado mientras hacía la tesis.
+
+Nadar me ha enseñado muchas cosas y creo que tiene una gran conexión con la ciencia: disciplina, trabajo, sacrificio y esfuerzo. Intentarlo una y otra vez sin rendirse: perseverancia y tenacidad. Aprender que la frustración es una nueva oportunidad para hacerlo mejor la siguiente vez. 
+
+"... la vida se trata de solventar problemas, de mejorar y progresar, ya sabes, siempre puedes poner una excusa por cualquier razón...". Gracias [Eddie](https://www.youtube.com/watch?v=6vN6QZInV98) por enseñarme tanto.
+
+**Si de verdad quieres algo, encontrarás una forma de hacerlo**. <strong>Happy coding! :) </strong>

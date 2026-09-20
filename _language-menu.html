@@ -1,0 +1,29 @@
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const languageMenu =
+    document.getElementById("languages-links-parent");
+
+  const navbar =
+    document.getElementById("navbarCollapse");
+
+  if (!languageMenu || !navbar) {
+    return;
+  }
+
+  const languageItem = languageMenu.closest(".nav-item");
+
+  if (!languageItem) {
+    return;
+  }
+
+  /*
+   * Babelquarto inserta el selector como primer elemento.
+   * Lo retiramos de esa posición y lo añadimos al final
+   * del contenido principal de la barra.
+   */
+  languageItem.parentNode.removeChild(languageItem);
+  navbar.appendChild(languageItem);
+
+  languageItem.classList.add("language-nav-item");
+});
+</script>

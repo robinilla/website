@@ -1,0 +1,252 @@
+project:
+  type: website
+
+lang: es
+
+website:
+  title: "Sonia Illanas Website"
+  search: true
+
+  navbar:
+    background: "#004E4C"
+    foreground: "#FFFFFF"
+    left:
+    #  - href: research.qmd
+    #    text: Research
+      - href: publications.qmd
+        text: Publicaciones
+      - href: phd.qmd
+        text: PhD
+      - href: conferences.qmd
+        text: Congresos
+      - href: teaching.qmd
+        text: Recursos   
+      - href: people.qmd
+        text: Gente
+  
+  sidebar:
+    - id: muibaf
+      title: "Presentación del Curso"
+      style: docked
+      search: true
+      contents:
+        - text: "Inicio de las prácticas"
+          href: resources/MUIBAF/index.qmd
+
+        - section: "Fundamentos de R"
+          contents:
+            - text: "0. Antes de empezar"
+              href: resources/MUIBAF/00-beginning.qmd
+            - text: "1. Primer contacto con R"
+              href: resources/MUIBAF/01-intro-R.qmd
+            - text: "1.1. Paneles de R"
+              href: resources/MUIBAF/01-intro-R.qmd#r-panels
+            - text: "1.2. R ¿Script o consola?"
+              href: resources/MUIBAF/01-intro-R.qmd#r-consola
+            - text: "1.3. R como calculadora"
+              href: resources/MUIBAF/01-intro-R.qmd#r-calculadora
+            - text: "1.4. Asignación de objetos"
+              href: resources/MUIBAF/01-intro-R.qmd#r-objects
+            - text: "1.5. Nombres de objetos y scripts"
+              href: resources/MUIBAF/01-intro-R.qmd#r-naming
+            - text: "1.6. Errores y warnings"
+              href: resources/MUIBAF/01-intro-R.qmd#r-errors
+            - text: "2. Tipo y estructura de los datos"
+              href: resources/MUIBAF/02-estructuras-datos-R.qmd
+            - text: "2.1. Vectores"
+              href: resources/MUIBAF/02-estructuras-datos-R.qmd#vectors
+            - text: "2.2. Listas"
+              href: resources/MUIBAF/02-estructuras-datos-R.qmd#list
+            - text: "2.3. Matrices"
+              href: resources/MUIBAF/02-estructuras-datos-R.qmd#matrix
+            - text: "2.4. Data frames y tibbles"
+              href: resources/MUIBAF/02-estructuras-datos-R.qmd#df
+            - text: "2.5. Factores (variables categóricas)"
+              href: resources/MUIBAF/02-estructuras-datos-R.qmd#factores
+            - text: "2.6. Diferencia entre `NULL` y `NA`"
+              href: resources/MUIBAF/02-estructuras-datos-R.qmd#NULL
+            - text: "3. Funciones y paquetes en R"
+              href: resources/MUIBAF/03-funciones-paquetes-R.qmd
+            - text: "3.1. Uso de funciones "
+              href: resources/MUIBAF/03-funciones-paquetes-R.qmd#uso-funciones
+            - text: "3.2. Argumentos"
+              href: resources/MUIBAF/03-funciones-paquetes-R.qmd#argumentos
+            - text: "3.3. Instalar y cargar paquetes"
+              href: resources/MUIBAF/03-funciones-paquetes-R.qmd#install-packages
+            - text: "3.4. ¿Cómo citar los paquetes de R en un trabajo?"
+              href: resources/MUIBAF/03-funciones-paquetes-R.qmd#package-citation
+            - text: "3.5. Funciones propias"
+              href: resources/MUIBAF/03-funciones-paquetes-R.qmd#own-functions
+            - text: "3.6. Estructuras de control"
+              href: resources/MUIBAF/03-funciones-paquetes-R.qmd#control-structures  
+            - text: "4. Tibbles y tidyverse"
+              href: resources/MUIBAF/04-manejo-datos.qmd
+            - text: "4.1. De data frames a tibbles"
+              href: resources/MUIBAF/04-manejo-datos.qmd#tibbles
+            - text: "4.2. ¿Qué es el tidyverse?"
+              href: resources/MUIBAF/04-manejo-datos.qmd#tidyv
+            - text: "4.3. Datos ordenados o *tidy data* "
+              href: resources/MUIBAF/04-manejo-datos.qmd#tidydata
+            - text: "4.4. El operador pipe"
+              href: resources/MUIBAF/04-manejo-datos.qmd#pipe
+            - text: "4.5. Principales paquetes del tidyverse"
+              href: resources/MUIBAF/04-manejo-datos.qmd#paquetes-tidyverse            
+
+        - section: "Análisis estadísticos básicos"
+          contents:
+            - text: "5. Estadística básica"
+              href: resources/MUIBAF/05-stats-medias.qmd
+            - text: "5.1. Preparación y exploración de los datos"
+              href: resources/MUIBAF/05-stats-medias.qmd#data-preparation
+            - text: "5.2. Comparaciones entre dos grupos"
+              href: resources/MUIBAF/05-stats-medias.qmd#group-mean-comparison
+            - text: "5.3. Comparaciones entre más de dos grupos"
+              href: resources/MUIBAF/05-stats-medias.qmd#group-mean-comparison-more-than-2-levels
+            - text: "5.4. Comparación de efectos entre variables"
+              href: resources/MUIBAF/05-stats-medias.qmd#interactions
+            - text: "5.5. Muestras dependientes o medidas repetidas"
+              href: resources/MUIBAF/05-stats-medias.qmd#repeated-samples
+            - text: "5.6. Relaciones entre variables"
+              href: resources/MUIBAF/05-stats-medias.qmd#relations
+
+
+  page-footer:
+    left: "© 2026 Sonia Illanas - Creado con Quarto"
+    center: 
+      - text: "<img src='/images/Mail.svg' width='30' height='30'>"
+        href: mailto:sonia.illanas@uclm.com
+        aria-label: Correo electrónico
+        
+      - text: "<img src='/images/GitHub.svg' width='30' height='30'>"
+        href: https://github.com/robinilla
+        aria-label: GitHub
+
+      - text: "<img src='/images/ORCID.svg' width='30' height='30'>"
+        href: https://orcid.org/0000-0001-7984-1141
+        aria-label: ORCID
+
+      - text: "<img src='/images/GoogleScholar.svg' width='30' height='30'>"
+        href: https://scholar.google.es/citations?hl=es&user=ew25H7QAAAAJ&view_op=list_works&sortby=pubdate
+        aria-label: GoogleScholar
+      
+      - text: "<img src='/images/ResearchGate.svg' width='30' height='30'>"
+        href: https://www.researchgate.net/profile/Sonia-Illanas?ev=hdr_xprf
+        aria-label: Researchgate
+      
+      - text: "<img src='/images/bsky.svg' width='30' height='30'>"
+        href:  https://bsky.app/profile/soniaillanas.bsky.social
+        aria-label: Bluesky
+
+      - text: "<img src='/images/Twitter.svg' width='30' height='30'>"
+        href: https://x.com/SoniaIllanas
+        aria-label: twitter
+
+
+format:
+  html:
+    theme:
+      - cosmo
+      - brand
+    css: styles.css
+    toc: true
+    code-fold: true
+    code-summary: "Mostrar código"
+    include-after-body: 
+    - file: _language-menu.html
+    - text: |
+        <script>
+        (() => {
+          function translateNavbar() {
+            const htmlLanguage =
+              (document.documentElement.lang || "").toLowerCase();
+
+            const pathParts =
+              window.location.pathname.toLowerCase().split("/");
+
+            const isEnglish =
+              htmlLanguage.startsWith("en") ||
+              pathParts.includes("en");
+
+            const labels = isEnglish
+              ? {
+                  brand: "Sonia Illanas Website",
+                  publications: "Publications",
+                  phd: "PhD",
+                  conferences: "Conferences",
+                  teaching: "Teaching",
+                  people: "About me",
+                  footer: "Built with Quarto"
+                }
+              : {
+                  brand: "Web de Sonia Illanas",
+                  publications: "Publicaciones",
+                  phd: "Tesis",
+                  conferences: "Congresos",
+                  teaching: "Recursos",
+                  people: "Sobre mí",
+                  footer: "Creado con Quarto"
+                };
+
+            function pageName(href) {
+              return (href || "")
+                .split("#")[0]
+                .split("?")[0]
+                .replace(/\/$/, "")
+                .split("/")
+                .pop()
+                .replace(/\.(html|qmd)$/, "");
+            }
+
+            document
+              .querySelectorAll("#quarto-header a.nav-link")
+              .forEach((link) => {
+                const page = pageName(link.getAttribute("href"));
+
+                if (labels[page]) {
+                  link.textContent = labels[page];
+                }
+              });
+
+            const navbarTitle = document.querySelector(
+              "#quarto-header .navbar-title"
+            );
+
+            if (navbarTitle) {
+              navbarTitle.textContent = labels.brand;
+            }
+
+            const footerRight = document.querySelector(
+              ".nav-footer-right"
+            );
+
+            if (footerRight) {
+              footerRight.textContent = labels.footer;
+            }
+          }
+
+          if (document.readyState === "loading") {
+            document.addEventListener(
+              "DOMContentLoaded",
+              translateNavbar
+            );
+          } else {
+            translateNavbar();
+          }
+        })();
+        </script>
+
+babelquarto:
+  
+  languagelinks: navbar
+  languagecodes:
+  - name: es
+    text: "Español"
+  
+  - name: en 
+    text: "English"
+
+  mainlanguage: es
+  languages: 
+    - en
+title-en: Sonia Illanas Website
+description-en: description in en

@@ -1,0 +1,34 @@
+---
+title: " Spatial Abundance Explorer - App"
+subtitle: "Simulating abundance data with spatial autocorrelation"
+page-layout: full
+toc: false
+body-classes: shiny-page
+---
+
+<span style = "color: #004E4C"> This app allows to interactively change environmental and spatial autocorrelation parameters. </span> / Esta aplicación permite explorar interactivamente el effecto de los parámetros ambientales y de autocorrelación espacial.
+
+ <span style = "color: #004E4C"> Based on the paper</span> / Basado en el artículo científico: [Guélat and Kéry, 2018](https://besjournals.onlinelibrary.wiley.com/doi/10.1111/2041-210X.12983).
+
+
+```{=html}
+<div class="shiny-app-actions">
+  <a
+    href="https://soniaillanas-spatial-abundance-explorer.share.connect.posit.cloud"
+    target="_blank"
+    rel="noopener"
+    class="shiny-app-button"
+    >
+    Open full screen / Abrir a pantalla completa
+  </a>
+</div>
+
+<div class="shiny-app-container">
+  <iframe
+    src="https://soniaillanas-spatial-abundance-explorer.share.connect.posit.cloud"
+    title="Aplicación Shiny"
+    loading="lazy"
+    allowfullscreen>
+  </iframe>
+</div>
+```
